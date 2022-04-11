@@ -5,7 +5,7 @@ Small project developed for FEUP's course in Algorithm Design (AD).
 ## Dependencies
 
 * [cmake](https://cmake.org/)
-* Any C++ compiler, for example [gcc](https://https://gcc.gnu.org/)
+* Any C++ compiler, for example [gcc](https://gcc.gnu.org/)
 
 ## Instalation
 
