@@ -184,7 +184,7 @@ public:
 
 void Empresa::initEstafeta() {
     fstream file;
-    file.open("C:\\Users\\Eduardo\\Desktop\\DA-Projeto\\carrinhas.txt"); //mudar path
+    file.open("../carrinhas.txt"); //mudar path
 
     string var1, var2, var3;
     file >> var1 >> var2 >> var3;
@@ -202,7 +202,7 @@ void Empresa::initEstafeta() {
 }
 
 void Empresa::initInventorio() {
-    ifstream file("C:\\Users\\Eduardo\\Desktop\\DA-Projeto\\encomendas.txt"); //mudar path
+    ifstream file("../encomendas.txt"); //mudar path
 
     string var1, var2, var3, var4;
     file >> var1 >> var2 >> var3 >> var4;
