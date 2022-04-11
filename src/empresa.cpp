@@ -73,7 +73,7 @@ bool Empresa::member_Inventorio(vector<Stock> v, Encomenda value) {
 
 void Empresa::initEstafeta() {
     fstream file;
-    file.open("../carrinhas.txt"); //mudar path
+    file.open("../data/carrinhas.txt"); //mudar path
 
     string var1, var2, var3;
     file >> var1 >> var2 >> var3;
@@ -91,7 +91,7 @@ void Empresa::initEstafeta() {
 }
 
 void Empresa::initInventorio() {
-    ifstream file("../encomendas.txt"); //mudar path
+    ifstream file("../data/encomendas.txt"); //mudar path
 
     string var1, var2, var3, var4;
     file >> var1 >> var2 >> var3 >> var4;
