@@ -9,10 +9,10 @@ Small project developed for FEUP's course in Algorithm Design (AD).
 
 ## Instalation
 
-> git clone https://github.com/Eduardoramos123/DA_Projeto.git
-> cd DA_Projeto
-> mkdir build && cd build
-> cmake ..
+> git clone https://github.com/Eduardoramos123/DA_Projeto.git<br>
+> cd DA_Projeto<br>
+> mkdir build && cd build<br>
+> cmake ..<br>
 > cmake --build .
 
 ## Running
