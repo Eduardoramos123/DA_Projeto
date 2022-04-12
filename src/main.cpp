@@ -2,8 +2,6 @@
 
 using namespace std;
 
-
-
 int main() {
     Empresa e;
     vector<Stock> stocks = e.getStockPeso();

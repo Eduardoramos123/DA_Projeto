@@ -17,9 +17,9 @@ private:
     vector<Encomenda> merge1(vector<Encomenda> v1, vector<Encomenda> v2);
     vector<Encomenda> merge_sort(vector<Encomenda> v, int init, int fim);
     bool member_Inventorio(vector<Stock> v, Encomenda value);
-public:
     void initEstafeta();
     void initInventorio();
+public:
     Empresa();
     vector<Encomenda> getInventorio() const;
     void devolverEncomendas(Estafeta &e);
