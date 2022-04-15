@@ -19,6 +19,15 @@ private:
     void sortEstafetasDesc(vector<Estafeta>& estafetas) const;
 
     /**
+     * Sorts a vector of Estafetas in ascending
+     * order of volume * weight using the STL
+     * sort method.
+     *
+     * @param estafetas The vector to be sorted.
+     */
+    void sortEstafetasAsc(vector<Estafeta>& estafetas) const;
+
+    /**
      * Sorts a vector of Encomendas in descending
      * order of weigth using the STL sort method.
      *
