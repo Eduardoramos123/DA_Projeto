@@ -1,4 +1,7 @@
 #include "empresa.h"
+#include "encomenda.h"
+#include "stock.h"
+#include "estafeta.h"
 
 double Empresa::get_max(double a, double b) {
     if (a > b) {

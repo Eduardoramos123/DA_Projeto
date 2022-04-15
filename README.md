@@ -5,6 +5,7 @@ Small project developed for FEUP's course in Algorithm Design (AD).
 ## Dependencies
 
 * [cmake](https://cmake.org/)
+* [make](https://www.gnu.org/software/make/)
 * Any C++ compiler, for example [gcc](https://gcc.gnu.org/)
 
 ## Instalation
@@ -13,11 +14,11 @@ Small project developed for FEUP's course in Algorithm Design (AD).
 > cd DA_Projeto<br>
 > mkdir build && cd build<br>
 > cmake ..<br>
-> cmake --build .
+> make
 
 ## Running
 Assuming you are inside the build directory that you created in the previous section, just run:
-> ./DA_Projeto
+> ./DA_Projeto <scenario nr (between 1 and 3)>
 
 ## Developers
 * Daniel António Mendes Novais
