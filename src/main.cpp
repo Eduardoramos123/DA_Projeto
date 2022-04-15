@@ -1,16 +1,31 @@
-#include "empresa.h"
+#include <string.h>
+
+#include "scenarios.h"
 
 using namespace std;
 
+int main(int argc, char* argv[]) {
 
-
-int main() {
-    Empresa e;
-    vector<Stock> stocks = e.getStockPeso();
-
-    for (int i = 0; i < stocks.size() ; i++) {
-        cout << stocks[i].getEncomenda().getPeso() << "/" << stocks[i].getEncomenda().getVolume() << " -- " << stocks[i].getNumber() << endl;
+    if (argc != 2) {
+        cout << "usage: " << argv[0] << " <scenario nr>" << endl;
+        return 1;
     }
+
+    if (strcmp(argv[1], "1") && 
+            strcmp(argv[1], "2") &&
+            strcmp(argv[1], "3")) {
+        cout << "enter a scenario nr between 1 and 3." << endl;
+        return 1;
+    }
+
+    Scenarios scenarios;
+
+    if (!strcmp(argv[1], "1"))
+        scenarios.scenario1();
+    else if (!strcmp(argv[1], "2"))
+        scenarios.scenario2();
+    else if(!strcmp(argv[1], "3"))
+        scenarios.scenario3();
 
     return 0;
 }
