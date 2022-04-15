@@ -13,7 +13,7 @@ Small project developed for FEUP's course in Algorithm Design (AD).
 > cd DA_Projeto<br>
 > mkdir build && cd build<br>
 > cmake ..<br>
-> cmake --build .
+> make
 
 ## Running
 Assuming you are inside the build directory that you created in the previous section, just run:

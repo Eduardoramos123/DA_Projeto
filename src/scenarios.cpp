@@ -54,7 +54,7 @@ void Scenarios::scenario1() {
 
     const unsigned nEstafetas = estafetas.size();
 
-    for (const auto encomenda : encomendas) {
+    for (const auto& encomenda : encomendas) {
         bool delivered = false;
         for (auto& estafeta : estafetasUsados) {
             if (fits(encomenda, estafeta)) {
