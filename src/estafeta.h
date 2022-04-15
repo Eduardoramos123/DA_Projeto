@@ -11,24 +11,20 @@ using namespace  std;
 class Estafeta {
 private:
     string matricula;
-    double volMax;
-    double currVol;
-    double pesoMax;
-    double currPeso;
+    int volMax;
+    int currVol;
+    int pesoMax;
+    int currPeso;
+    int custo;
     vector<Encomenda> entregas;
-    double preco_entrega;
-    int numero_entregado;
 public:
     Estafeta();
-    Estafeta(string matricula, double volMax, double pesoMax, double preco_entrega);
-    double getVolMax() const;
-    double getPesoMax() const;
+    Estafeta(string, int, int, int);
+    int getVol() const;
+    int getPeso() const;
+    int getCusto() const;
     vector<Encomenda> getEntregas() const;
-    void addEntrega(Encomenda e);
-    double custo_tota() const;
-    void removeEntrega(Encomenda e);
-    void entregar(Encomenda e);
-    Encomenda getEncomenda(int i);
+    void addEntrega(const Encomenda&);
     string getMatricula() const;
 };
 

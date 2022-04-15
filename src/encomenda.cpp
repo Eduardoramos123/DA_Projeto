@@ -1,41 +1,45 @@
 #include "encomenda.h"
 
 Encomenda::Encomenda() {
-    enc_id = -1;
-    vol = 0;
-    peso = 0;
-    tempo_entrega = -1;
+    this->id = -1;
+    this->vol = 0;
+    this->peso = 0;
+    this->tempo_entrega = -1;
 }
 
-Encomenda::Encomenda(int id, double v, double p, double recompensa, double tempo) {
-    enc_id = id;
-    vol = v;
-    peso = p;
+Encomenda::Encomenda(int id, int v, int p, int recompensa, int tempo) {
+    this->id = id;
+    this->vol = v;
+    this->peso = p;
     this->recompensa = recompensa;
-    tempo_entrega = tempo;
+    this->tempo_entrega = tempo;
 
 }
 
 int Encomenda::getId() const {
-    return enc_id;
+    return id;
 }
 
-double Encomenda::getVolume() const {
+int Encomenda::getVolume() const {
     return vol;
 }
 
-double Encomenda::getPeso() const {
+int Encomenda::getPeso() const {
     return peso;
 }
 
-double Encomenda::getTempo() const {
+int Encomenda::getRecompensa() const {
+    return recompensa;
+}
+
+int Encomenda::getTempo() const {
     return tempo_entrega;
 }
 
 bool Encomenda::operator!= (Encomenda e) const {
-    return enc_id != e.enc_id;
+    return id != e.getId();
 }
 
 bool Encomenda::operator== (Encomenda e) const {
-    return enc_id == e.enc_id;
+    return id == e.getId();
 }

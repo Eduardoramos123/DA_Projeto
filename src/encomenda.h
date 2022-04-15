@@ -4,20 +4,21 @@
 
 class Encomenda {
 private:
-    int enc_id;
-    double vol;
-    double peso;
-    double recompensa;
-    double tempo_entrega;
+    int id;
+    int vol;
+    int peso;
+    int recompensa;
+    int tempo_entrega;
 public:
     Encomenda();
-    Encomenda(int id, double vol, double peso, double recompensa, double tempo);
+    Encomenda(int, int, int, int, int);
     int getId() const;
-    double getVolume() const;
-    double getPeso() const;
-    double getTempo() const;
-    bool operator!= (Encomenda e) const;
-    bool operator== (Encomenda e) const;
+    int getVolume() const;
+    int getPeso() const;
+    int getRecompensa() const;
+    int getTempo() const;
+    bool operator!= (Encomenda) const;
+    bool operator== (Encomenda) const;
 };
 
 

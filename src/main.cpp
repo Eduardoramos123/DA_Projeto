@@ -1,14 +1,12 @@
-#include "empresa.h"
+#include "scenarios.h"
 
 using namespace std;
 
 int main() {
-    Empresa e;
-    vector<Stock> stocks = e.getStockPeso();
 
-    for (int i = 0; i < stocks.size() ; i++) {
-        cout << stocks[i].getEncomenda().getPeso() << "/" << stocks[i].getEncomenda().getVolume() << " -- " << stocks[i].getNumber() << endl;
-    }
+    Scenarios scenarios;
+
+    scenarios.scenario1();
 
     return 0;
 }
