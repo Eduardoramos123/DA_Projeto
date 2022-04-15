@@ -13,6 +13,13 @@ int main() {
     e.cenario1_2();
     cout << endl;
     e.cenario1_3();
-
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    vector<int> v = e.knapsackPeso();
+    for (int i = 0; i < v.size(); i++) {
+        cout << v[i] << " ";
+    }
     return 0;
 }

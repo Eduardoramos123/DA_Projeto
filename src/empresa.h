@@ -43,7 +43,7 @@ public:
     vector<Estafeta> merge_sort_estafeta_Peso_Vol(vector<Estafeta> v, int init, int fim);
 
 
-    void knapsackPeso(Estafeta estafeta);
+    vector<int> knapsackPeso();
 
 
     int cenario1_1();

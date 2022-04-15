@@ -1,7 +1,4 @@
 #include "empresa.h"
-#include "encomenda.h"
-#include "stock.h"
-#include "estafeta.h"
 
 double Empresa::get_max(double a, double b) {
     if (a > b) {
@@ -482,23 +479,29 @@ vector<Estafeta> Empresa::merge_sort_estafeta_Peso_Vol(vector<Estafeta> v, int i
     return merge6(final1, final2);
 }
 
-/*
-void Empresa::knapsackPeso(Estafeta estafeta) {
-    vector<Stock> stock_peso = getStockPeso();
-    vector<vector<double>> tabela(estafeta.getPesoMax() + 1, vector<double>(stock_peso.size()));
+int max(int a, int b) {
+    return (a > b) ? a : b;
+}
 
-    for (int i = 0; i < estafeta.getPesoMax() + 1; i++) {
-        for (int w = 0; w < stock_peso.size(); w++)  {
+vector<int> Empresa::knapsackPeso() {
+    vector<Stock> stock = getStockPeso();
+    vector<Estafeta> v = merge_sort_estafeta_Peso(estafetas, 0, estafetas.size());
+    vector<vector<int>> tabela(stock.size(), vector<int>(v[v.size() - 1].getPesoMax()));
+    for (int i = 0; i < stock.size(); i++) {
+        for (int w = 0; w < v[v.size() - 1].getPesoMax() + 1; w++)  {
             if (i == 0 || w == 0) {
                 tabela[i][w] = 0;
             }
-            else if () {
-
+            else if (stock[i - 1].getEncomenda().getPeso() <= w) {
+                tabela[i][w] = max(stock[i - 1].getEncomenda().getRecompensa() + tabela[i - 1][w - stock[i - i].getEncomenda().getPeso()], tabela[i - 1][w]);
+            }
+            else {
+                tabela[i][w] = tabela[i - 1][w];
             }
         }
     }
+    return tabela[tabela.size() - 1];
 }
- */
 
 int Empresa::cenario1_1() {
     int res = 0, est = 0;
