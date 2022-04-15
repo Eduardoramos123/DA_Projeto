@@ -30,6 +30,18 @@ bool Scenarios::fits(const Encomenda& encomenda, const Estafeta& estafeta) const
            (encomenda.getPeso() <= estafeta.getVol());
 }
 
+int Scenarios::custo(const vector<Estafeta>& estafetas) const {
+    int custoTotal = 0;
+    for (const auto& e : estafetas) custoTotal += e.getCusto();
+    return custoTotal;
+}
+
+int Scenarios::lucro(const vector<Encomenda>& encomendas) const {
+    int lucroTotal = 0;
+    for (const auto& e : encomendas) lucroTotal += e.getRecompensa();
+    return lucroTotal;
+}
+
 void Scenarios::scenario1() {
     vector<Estafeta> estafetas = empresa->getEstafetas();
     vector<Encomenda> encomendas = empresa->getEncomendas();
@@ -38,8 +50,8 @@ void Scenarios::scenario1() {
     sortEncomendasPesoDesc(encomendas);
 
     vector<Estafeta> estafetasUsados;
+    vector<Encomenda> encomendasEntregues;
 
-    unsigned nEntregues = 0;
     const unsigned nEstafetas = estafetas.size();
 
     for (const auto encomenda : encomendas) {
@@ -65,11 +77,12 @@ void Scenarios::scenario1() {
             }
         }
 
-        if (delivered) nEntregues++;
+        if (delivered) encomendasEntregues.push_back(encomenda);
     }
 
-    cout << "Foram entregues " << nEntregues << "/" << encomendas.size() << " encomendas e foram usados " <<
-            estafetasUsados.size() << "/" << nEstafetas << " estafetas." << endl;
+    cout << "Foram entregues " << encomendasEntregues.size() << "/" << encomendas.size() << " encomendas e foram usados " <<
+            estafetasUsados.size() << "/" << nEstafetas << " estafetas." << endl <<
+            "Lucro total: " << lucro(encomendasEntregues) - custo(estafetasUsados) << "." << endl;
     
 }
 

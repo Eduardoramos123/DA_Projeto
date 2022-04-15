@@ -14,6 +14,8 @@ private:
     void sortEncomendasVolDesc(vector<Encomenda>&) const;
 
     bool fits(const Encomenda&, const Estafeta&) const;
+    int custo(const vector<Estafeta>&) const;
+    int lucro(const vector<Encomenda>&) const;
 public:
     Scenarios();
     ~Scenarios();
