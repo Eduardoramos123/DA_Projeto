@@ -301,7 +301,7 @@ bool Empresa::member_Inventorio_Peso_Vol(vector<Stock> v, Encomenda value) {
 }
 
 vector<Stock> Empresa::getStockPesoVol() {
-    vector<Encomenda> sorted = merge_sort_Vol(inventorio, 0, inventorio.size());
+    vector<Encomenda> sorted = merge_sort_Peso_Vol(inventorio, 0, inventorio.size());
     vector<Stock> res;
     int j = -1;
     for (int i = 0; i < sorted.size(); i++) {
@@ -500,6 +500,163 @@ vector<int> Empresa::knapsackPeso() {
             }
         }
     }
+    return tabela[tabela.size() - 1];
+}
+
+vector<Encomenda> Empresa::merge7(vector<Encomenda> v1, vector<Encomenda> v2) {
+    vector<Encomenda> res;
+
+    int i = 0;
+    int j = 0;
+
+    while (i < v1.size() && j < v2.size()) {
+        if ((v1[i].getPeso() * 10 + v1[i].getVolume()) < (v2[i].getPeso() * 10 + v2[i].getVolume())) {
+            res.push_back(v1[i]);
+            i++;
+        } else {
+            res.push_back(v2[j]);
+            j++;
+        }
+    }
+
+    while(i < v1.size()) {
+        res.push_back(v1[i]);
+        i++;
+    }
+    while(j < v2.size()) {
+        res.push_back(v2[j]);
+        j++;
+    }
+    return res;
+}
+
+vector<Encomenda> Empresa::merge_sort_Peso_Vol_V2(vector<Encomenda> v, int init, int fim) {
+    if (v.size() <= 1) {
+        return v;
+    }
+
+    int medio = (init + fim) / 2;
+
+    vector<Encomenda> part1;
+    vector<Encomenda> part2;
+
+    for (int i = init; i < medio; i++) {
+        part1.push_back(v[i]);
+    }
+
+    for (int i = medio; i < fim; i++) {
+        part2.push_back(v[i]);
+    }
+
+    vector<Encomenda> final1;
+    vector<Encomenda> final2;
+
+    final1 = merge_sort_Peso_Vol_V2(part1, 0, part1.size());
+    final2 = merge_sort_Peso_Vol_V2(part2, 0, part2.size());
+
+    return merge7(final1, final2);
+}
+
+bool Empresa::member_Inventorio_Peso_Vol_V2(vector<Stock> v, Encomenda value) {
+    for (int i = 0; i < v.size(); i++) {
+        Encomenda e1 = v[i].getEncomenda();
+        if (e1.getVolume() == value.getVolume() && e1.getPeso() == value.getPeso()) {
+            return true;
+        }
+    }
+    return false;
+}
+
+vector<Stock> Empresa::getStockPesoVol_V2() {
+    vector<Encomenda> sorted = merge_sort_Peso_Vol_V2(inventorio, 0, inventorio.size());
+    vector<Stock> res;
+    int j = -1;
+    for (int i = 0; i < sorted.size(); i++) {
+        if (!member_Inventorio_Peso_Vol_V2(res, sorted[i])) {
+            Stock s = Stock(sorted[i], 1);
+            res.push_back(s);
+            j++;
+        }
+        else {
+            res[j].incNumber();
+        }
+    }
+    return res;
+}
+
+vector<Estafeta> Empresa::merge8(vector<Estafeta> v1, vector<Estafeta> v2) {
+    vector<Estafeta> res;
+
+    int i = 0;
+    int j = 0;
+
+    while (i < v1.size() && j < v2.size()) {
+        if ((v1[i].getVolMax() + v1[i].getPesoMax() * 10) < (v2[j].getVolMax() + v2[i].getPesoMax() * 10)) {
+            res.push_back(v1[i]);
+            i++;
+        } else {
+            res.push_back(v2[j]);
+            j++;
+        }
+    }
+
+    while(i < v1.size()) {
+        res.push_back(v1[i]);
+        i++;
+    }
+    while(j < v2.size()) {
+        res.push_back(v2[j]);
+        j++;
+    }
+    return res;
+}
+
+vector<Estafeta> Empresa::merge_sort_estafeta_Peso_Vol_V2(vector<Estafeta> v, int init, int fim) {
+    if (v.size() <= 1) {
+        return v;
+    }
+
+    int medio = (init + fim) / 2;
+
+    vector<Estafeta> part1;
+    vector<Estafeta> part2;
+
+    for (int i = init; i < medio; i++) {
+        part1.push_back(v[i]);
+    }
+
+    for (int i = medio; i < fim; i++) {
+        part2.push_back(v[i]);
+    }
+
+    vector<Estafeta> final1;
+    vector<Estafeta> final2;
+
+    final1 = merge_sort_estafeta_Peso_Vol_V2(part1, 0, part1.size());
+    final2 = merge_sort_estafeta_Peso_Vol_V2(part2, 0, part2.size());
+
+    return merge8(final1, final2);
+}
+
+vector<int> Empresa::knapsack_Peso_Vol() {
+    vector<Stock> stock = getStockPesoVol_V2();
+    vector<Estafeta> est = merge_sort_estafeta_Peso_Vol_V2(estafetas, 0, estafetas.size());
+    Estafeta final = est[est.size() - 1];
+    vector<vector<int>> tabela(stock.size(), vector<int>(final.getPesoMax() * 10 + final.getVolMax()));
+    for (int i = 0; i < stock.size(); i++) {
+        for (int v = 0; v < final.getPesoMax() * 10 + final.getVolMax() + 1; v++)  {
+            if (i == 0 || v == 0) {
+                tabela[i][v] = 0;
+            }
+            else if (stock[i - 1].getEncomenda().getPeso() * 10 + stock[i - 1].getEncomenda().getVolume() <= v) {
+                tabela[i][v] = max(stock[i - 1].getEncomenda().getRecompensa() + tabela[i - 1][v - stock[i - i].getEncomenda().getPeso() * 10 - stock[i - i].getEncomenda().getVolume()], tabela[i - 1][v]);
+            }
+            else {
+                tabela[i][v] = tabela[i - 1][v];
+            }
+        }
+    }
+    cout << "Terminou!!!!!!" << endl;
     return tabela[tabela.size() - 1];
 }
 

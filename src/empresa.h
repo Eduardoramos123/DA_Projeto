@@ -43,7 +43,14 @@ public:
     vector<Estafeta> merge_sort_estafeta_Peso_Vol(vector<Estafeta> v, int init, int fim);
 
 
+    vector<Encomenda> merge7(vector<Encomenda> v1, vector<Encomenda> v2);
+    vector<Encomenda> merge_sort_Peso_Vol_V2(vector<Encomenda> v, int init, int fim);
+    bool member_Inventorio_Peso_Vol_V2(vector<Stock> v, Encomenda value);
+    vector<Stock> getStockPesoVol_V2();
+    vector<Estafeta> merge8(vector<Estafeta> v1, vector<Estafeta> v2);
+    vector<Estafeta> merge_sort_estafeta_Peso_Vol_V2(vector<Estafeta> v, int init, int fim);
     vector<int> knapsackPeso();
+    vector<int> knapsack_Peso_Vol();
 
 
     int cenario1_1();

@@ -17,9 +17,7 @@ int main() {
     cout << endl;
     cout << endl;
     cout << endl;
-    vector<int> v = e.knapsackPeso();
-    for (int i = 0; i < v.size(); i++) {
-        cout << v[i] << " ";
-    }
+    vector<int> v = e.knapsack_Peso_Vol();
+
     return 0;
 }
