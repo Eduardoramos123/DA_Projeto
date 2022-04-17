@@ -638,9 +638,7 @@ vector<Estafeta> Empresa::merge_sort_estafeta_Peso_Vol_V2(vector<Estafeta> v, in
     return merge8(final1, final2);
 }
 
-vector<int> Empresa::knapsack_Peso_Vol() {
-    vector<Stock> stock = getStockPesoVol_V2();
-    vector<Estafeta> est = merge_sort_estafeta_Peso_Vol_V2(estafetas, 0, estafetas.size());
+vector<int> Empresa::knapsack_Peso_Vol(vector<Stock>& stock, vector<Estafeta>& est) {
     Estafeta final = est[est.size() - 1];
     vector<vector<int>> tabela(stock.size(), vector<int>(final.getPesoMax() * 10 + final.getVolMax()));
     for (int i = 0; i < stock.size(); i++) {
@@ -658,6 +656,25 @@ vector<int> Empresa::knapsack_Peso_Vol() {
     }
     cout << "Terminou!!!!!!" << endl;
     return tabela[tabela.size() - 1];
+}
+
+Estafeta Empresa::maxprofits(vector<Stock>& stocks, vector<Estafeta>& est, int& profit, int& in) {
+    vector<int> sol = knapsack_Peso_Vol(stocks, est);
+    int max = 0;
+    int final = -1;
+    for (int i = 0; i < est.size(); i++) {
+        if (sol[est[i].getPesoMax() * 10 + est[i].getVolMax()] > max) {
+            max = sol[est[i].getPesoMax() * 10 + est[i].getVolMax()];
+            final = i;
+            profit = sol[est[i].getPesoMax() * 10 + est[i].getVolMax()];
+        }
+    }
+    if (final == -1) {
+        Estafeta e = Estafeta();
+        return e;
+    }
+    in = final;
+    return est[final];
 }
 
 int Empresa::cenario1_1() {
@@ -765,5 +782,36 @@ int Empresa::cenario1_3() {
     cout << "Cenario 1 com criterio de Peso e Volume: " << endl;
     cout << "Estafetas usados: " << est << endl;
     cout << "Encomendas entregues: " << res << endl;
+    return res;
+}
+
+vector<Estafeta> removeEstafeta(vector<Estafeta> est, int index) {
+    vector<Estafeta> res;
+
+    for (int i = 0; i < est.size(); i++) {
+        if (i != index) {
+            res.push_back(est[i]);
+        }
+    }
+    return res;
+}
+
+int Empresa::cenario2() {
+    vector<Stock> stocks = getStockPesoVol_V2();
+    vector<Estafeta> est = estafetas;
+    int res = 0;
+    int num_est = 0;
+
+    while (est.size() > 0 && stocks.size() > 0) {
+        int profit = 0;
+        int in = -1;
+        Estafeta e = maxprofits(stocks, est, profit, in);
+        num_est++;
+        res += profit;
+        est = removeEstafeta(est, in);
+    }
+    cout << "Cenario 2 com knapsack misto: " << endl;
+    cout << "Estafetas usados: " << num_est << endl;
+    cout << "Profit obtido: " << res << endl;
     return res;
 }

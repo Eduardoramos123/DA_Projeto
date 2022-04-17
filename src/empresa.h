@@ -50,12 +50,16 @@ public:
     vector<Estafeta> merge8(vector<Estafeta> v1, vector<Estafeta> v2);
     vector<Estafeta> merge_sort_estafeta_Peso_Vol_V2(vector<Estafeta> v, int init, int fim);
     vector<int> knapsackPeso();
-    vector<int> knapsack_Peso_Vol();
+    vector<int> knapsack_Peso_Vol(vector<Stock>& stock, vector<Estafeta>& est);
+    Estafeta maxprofits(vector<Stock>& stocks, vector<Estafeta>& est, int& profit, int& in);
 
 
     int cenario1_1();
     int cenario1_2();
     int cenario1_3();
+
+
+    int cenario2();
 };
 
 #endif //EMPRESA_H
