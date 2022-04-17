@@ -12,11 +12,13 @@ class Empresa {
 private:
     vector<Estafeta> estafetas;
     vector<Encomenda> inventorio;
+    vector<Encomenda> expresso;
 
     double get_max(double a, double b);
 public:
     void initEstafeta();
     void initInventorio();
+    void initExpresso();
     Empresa();
     vector<Encomenda> getInventorio() const;
     void devolverEncomendas(Estafeta &e);
@@ -50,8 +52,8 @@ public:
     vector<Estafeta> merge8(vector<Estafeta> v1, vector<Estafeta> v2);
     vector<Estafeta> merge_sort_estafeta_Peso_Vol_V2(vector<Estafeta> v, int init, int fim);
     vector<int> knapsackPeso();
-    vector<int> knapsack_Peso_Vol(vector<Stock>& stock, vector<Estafeta>& est);
-    Estafeta maxprofits(vector<Stock>& stocks, vector<Estafeta>& est, int& profit, int& in);
+    vector<int> knapsack_Peso_Vol(vector<Stock> stock, vector<Estafeta> est);
+    Estafeta maxprofits(vector<Stock> stocks, vector<Estafeta> est, int& profit, int& in);
 
 
     int cenario1_1();
@@ -60,6 +62,11 @@ public:
 
 
     int cenario2();
+
+    vector<Encomenda> merge9(vector<Encomenda> v1, vector<Encomenda> v2);
+    vector<Encomenda> merge_sort_Tempo(vector<Encomenda> v, int init, int fim);
+    void cenario3();
+
 };
 
 #endif //EMPRESA_H

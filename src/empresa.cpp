@@ -122,7 +122,7 @@ vector<Encomenda> Empresa::merge3(vector<Encomenda> v1, vector<Encomenda> v2) {
     int j = 0;
 
     while (i < v1.size() && j < v2.size()) {
-        if ((v1[i].getPeso() + v1[i].getVolume()) < (v2[i].getPeso() + v2[i].getVolume())) {
+        if ((v1[i].getPeso() + v1[i].getVolume()) < (v2[j].getPeso() + v2[j].getVolume())) {
             res.push_back(v1[i]);
             i++;
         } else {
@@ -217,9 +217,27 @@ void Empresa::initInventorio() {
     file.close();
 }
 
+void Empresa::initExpresso() {
+    ifstream file("../data/expresso.txt"); //mudar path
+
+    string var1, var2, var3, var4;
+    file >> var1 >> var2 >> var3 >> var4;
+
+    int i = 0;
+
+    double v, p, recompensa, tempo;
+    while (file >> v >> p >> recompensa >> tempo) {
+        Encomenda e = Encomenda(i, v, p, recompensa, tempo);
+        i++;
+        expresso.push_back(e);
+    }
+    file.close();
+}
+
 Empresa::Empresa() {
     initEstafeta();
     initInventorio();
+    initExpresso();
 }
 
 vector<Encomenda> Empresa::getInventorio() const {
@@ -432,7 +450,7 @@ vector<Estafeta> Empresa::merge6(vector<Estafeta> v1, vector<Estafeta> v2) {
     int j = 0;
 
     while (i < v1.size() && j < v2.size()) {
-        if ((v1[i].getVolMax() + v1[i].getPesoMax()) < (v2[j].getVolMax() + v2[i].getPesoMax())) {
+        if ((v1[i].getVolMax() + v1[i].getPesoMax()) < (v2[j].getVolMax() + v2[j].getPesoMax())) {
             res.push_back(v1[i]);
             i++;
         } else {
@@ -510,7 +528,7 @@ vector<Encomenda> Empresa::merge7(vector<Encomenda> v1, vector<Encomenda> v2) {
     int j = 0;
 
     while (i < v1.size() && j < v2.size()) {
-        if ((v1[i].getPeso() * 10 + v1[i].getVolume()) < (v2[i].getPeso() * 10 + v2[i].getVolume())) {
+        if ((v1[i].getPeso() * 10 + v1[i].getVolume()) < (v2[j].getPeso() * 10 + v2[j].getVolume())) {
             res.push_back(v1[i]);
             i++;
         } else {
@@ -591,7 +609,7 @@ vector<Estafeta> Empresa::merge8(vector<Estafeta> v1, vector<Estafeta> v2) {
     int j = 0;
 
     while (i < v1.size() && j < v2.size()) {
-        if ((v1[i].getVolMax() + v1[i].getPesoMax() * 10) < (v2[j].getVolMax() + v2[i].getPesoMax() * 10)) {
+        if ((v1[i].getVolMax() + v1[i].getPesoMax() * 10) < (v2[j].getVolMax() + v2[j].getPesoMax() * 10)) {
             res.push_back(v1[i]);
             i++;
         } else {
@@ -638,7 +656,7 @@ vector<Estafeta> Empresa::merge_sort_estafeta_Peso_Vol_V2(vector<Estafeta> v, in
     return merge8(final1, final2);
 }
 
-vector<int> Empresa::knapsack_Peso_Vol(vector<Stock>& stock, vector<Estafeta>& est) {
+vector<int> Empresa::knapsack_Peso_Vol(vector<Stock> stock, vector<Estafeta> est) {
     Estafeta final = est[est.size() - 1];
     vector<vector<int>> tabela(stock.size(), vector<int>(final.getPesoMax() * 10 + final.getVolMax()));
     for (int i = 0; i < stock.size(); i++) {
@@ -658,13 +676,14 @@ vector<int> Empresa::knapsack_Peso_Vol(vector<Stock>& stock, vector<Estafeta>& e
     return tabela[tabela.size() - 1];
 }
 
-Estafeta Empresa::maxprofits(vector<Stock>& stocks, vector<Estafeta>& est, int& profit, int& in) {
-    vector<int> sol = knapsack_Peso_Vol(stocks, est);
-    int max = 0;
+Estafeta Empresa::maxprofits(vector<Stock> stock, vector<Estafeta> est, int& profit, int& in) {
+    vector<int> sol = knapsack_Peso_Vol(stock, est);
+    int m = 0;
     int final = -1;
+    cout << "HERE!!!!!!!!" << endl;
     for (int i = 0; i < est.size(); i++) {
-        if (sol[est[i].getPesoMax() * 10 + est[i].getVolMax()] > max) {
-            max = sol[est[i].getPesoMax() * 10 + est[i].getVolMax()];
+        if (sol[est[i].getPesoMax() * 10 + est[i].getVolMax()] > m) { //ALTERAR AQUI DEVE TER DE TER UM VETOR
+            m = sol[est[i].getPesoMax() * 10 + est[i].getVolMax()];
             final = i;
             profit = sol[est[i].getPesoMax() * 10 + est[i].getVolMax()];
         }
@@ -802,16 +821,123 @@ int Empresa::cenario2() {
     int res = 0;
     int num_est = 0;
 
-    while (est.size() > 0 && stocks.size() > 0) {
-        int profit = 0;
-        int in = -1;
-        Estafeta e = maxprofits(stocks, est, profit, in);
-        num_est++;
-        res += profit;
-        est = removeEstafeta(est, in);
-    }
+    int profit;
+    int in;
+    vector<int> sol = knapsack_Peso_Vol(stocks, est);
+    cout << "IDK!!!!!!!!!!!!!" << endl;
+    Estafeta e = maxprofits(stocks, est, profit, in);
+    num_est++;
+    res += profit;
+    est = removeEstafeta(est, in);
     cout << "Cenario 2 com knapsack misto: " << endl;
     cout << "Estafetas usados: " << num_est << endl;
     cout << "Profit obtido: " << res << endl;
     return res;
 }
+
+vector<Encomenda> Empresa::merge9(vector<Encomenda> v1, vector<Encomenda> v2) {
+    vector<Encomenda> res;
+
+    int i = 0;
+    int j = 0;
+
+    while (i < v1.size() && j < v2.size()) {
+        if (v1[i].getTempo() < v2[j].getTempo()) {
+            res.push_back(v1[i]);
+            i++;
+        } else {
+            res.push_back(v2[j]);
+            j++;
+        }
+    }
+
+    while(i < v1.size()) {
+        res.push_back(v1[i]);
+        i++;
+    }
+    while(j < v2.size()) {
+        res.push_back(v2[j]);
+        j++;
+    }
+    return res;
+}
+
+vector<Encomenda> Empresa::merge_sort_Tempo(vector<Encomenda> v, int init, int fim) {
+    if (v.size() <= 1) {
+        return v;
+    }
+
+    int medio = (init + fim) / 2;
+
+    vector<Encomenda> part1;
+    vector<Encomenda> part2;
+
+    for (int i = init; i < medio; i++) {
+        part1.push_back(v[i]);
+    }
+
+    for (int i = medio; i < fim; i++) {
+        part2.push_back(v[i]);
+    }
+
+    vector<Encomenda> final1;
+    vector<Encomenda> final2;
+
+    final1 = merge_sort_Tempo(part1, 0, part1.size());
+    final2 = merge_sort_Tempo(part2, 0, part2.size());
+
+    return merge9(final1, final2);
+}
+
+bool member_of_index(vector<int> index, int j) {
+    for (int i = 0; i < index.size(); i++) {
+        if (j == index[i]) {
+            return true;
+        }
+    }
+    return false;
+}
+
+vector<Encomenda> removerEncomedas(vector<Encomenda> v, vector<int> index) {
+    vector<Encomenda> res;
+    for (int i = 0; i < v.size(); i++) {
+        if (!member_of_index(index, i)) {
+            res.push_back(v[i]);
+        }
+    }
+    return res;
+}
+
+void Empresa::cenario3() {
+    vector<Encomenda> exp = expresso;
+    vector<Encomenda> v = merge_sort_Tempo(expresso, 0, expresso.size());
+    int total = 8 * 60 * 60; //horas x minutos x segundos
+    int sum = 0;
+    int num_enc = 0;
+    int i = 0;
+    double media_part1 = 0;
+    vector<int> index;
+    while (sum <= total) {
+        if (sum + v[i].getTempo() > total) {
+            break;
+        }
+        sum += v[i].getTempo();
+        media_part1 += sum;
+        num_enc++;
+        index.push_back(i);
+        i++;
+    }
+    exp = removerEncomedas(exp, index);
+    cout << "Cenario 3 com Escalonamento de atividades: " << endl;
+    cout << "Encomendas entregues: " << num_enc << endl;
+    cout << "Media de entrega: " << media_part1 / num_enc << endl;
+    cout << "Remaining: " << exp.size() << endl;
+    expresso = exp;
+}
+
+
+
+
+
+
+

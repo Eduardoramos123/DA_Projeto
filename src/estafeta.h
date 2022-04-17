@@ -25,7 +25,7 @@ public:
     double getPesoMax() const;
     vector<Encomenda> getEntregas() const;
     bool addEntrega(Encomenda e);
-    double custo_tota() const;
+    double custo(int num) const;
     void removeEntrega(Encomenda e);
     void entregar(Encomenda e);
     Encomenda getEncomenda(int i);

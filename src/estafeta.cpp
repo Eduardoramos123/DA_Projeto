@@ -34,8 +34,8 @@ bool Estafeta::addEntrega(Encomenda e) {
     return true;
 }
 
-double Estafeta::custo_tota() const {
-    return preco_entrega * numero_entregado;
+double Estafeta::custo(int num) const {
+    return preco_entrega * num;
 }
 
 void Estafeta::removeEntrega(Encomenda e) {

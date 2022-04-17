@@ -17,7 +17,6 @@ int main() {
     cout << endl;
     cout << endl;
     cout << endl;
-    vector<int> v = e.knapsack_Peso_Vol();
-    cout << v[275 * 10 + 255] << endl;
+    e.cenario3();
     return 0;
 }
