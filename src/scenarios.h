@@ -81,6 +81,20 @@ private:
      * @return The total delivery reward.
      */
     int lucro(const vector<Encomenda>&) const;
+
+    /**
+     * Calculates the maximum value that
+     * can be carried by the best Estafeta.
+     *
+     * @param encomendas The vector of Estafetas to get the different max carries.
+     * @param encomendas The vector of Encomendas to get the diffrent Encomendas that are possible to carry.
+     *
+     * @return The a table with the best value a Estafeta can carry.
+     */
+    vector<int> knapsackMisto(const vector<Estafeta>, const vector<Encomenda>);
+
+
+
 public:
 
     /**

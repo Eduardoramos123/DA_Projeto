@@ -52,6 +52,30 @@ int Scenarios::lucro(const vector<Encomenda>& encomendas) const {
     return lucroTotal;
 }
 
+int max(int a, int b) {
+    return (a > b) ? a : b;
+}
+
+vector<int> Scenarios::knapsackMisto(const vector<Estafeta> estafetas, const vector<Encomenda> encomendas) {
+    Estafeta final = estafetas[estafetas.size() - 1];
+    vector<vector<int>> tabela(encomendas.size(), vector<int>(final.getPeso() * 10 + final.getVol()));
+    for (int i = 0; i < encomendas.size() + 1; i++) {
+        for (int w = 0; w < final.getPeso() * 10 + final.getVol() + 1; w++) {
+            if (i == 0 || w == 0) {
+                tabela[i][w] = 0;
+            }
+            else if (encomendas[i - 1].getPeso() * 10 + encomendas[i - 1].getVolume() <= w) {
+                tabela[i][w] = max(encomendas[i - 1].getRecompensa() + tabela[i - 1][w - encomendas[i - 1].getPeso() * 10 - encomendas[i - 1].getVolume()], tabela[i - 1][w]);
+            }
+            else {
+                tabela[i][w] = tabela[i - 1][w];
+            }
+
+        }
+    }
+    return tabela[tabela.size() - 1];
+}
+
 void Scenarios::scenario1() {
     vector<Estafeta> estafetas = empresa->getEstafetas();
     vector<Encomenda> encomendas = empresa->getEncomendas();
