@@ -51,6 +51,14 @@ private:
      */
     void sortEncomendasVolDesc(vector<Encomenda>& encomendas) const;
 
+    vector<Encomenda> mergeEncomenda(vector<Encomenda>, vector<Encomenda>);
+
+    vector<Encomenda> mergeSortEncomendaPesoVolume(vector<Encomenda>, int, int);
+
+    vector<Estafeta> mergeEstafeta(vector<Estafeta>, vector<Estafeta>);
+
+    vector<Estafeta> mergeSortEstafetaPesoVolume(vector<Estafeta>, int, int);
+
     /**
      * Checks if a given Encomenda can be delivered by
      * a given Estafeta.
@@ -93,7 +101,11 @@ private:
      */
     vector<int> knapsackMisto(Estafeta, const vector<Encomenda>, vector<vector<Encomenda>>&);
 
-    int maximizarLucro(vector<int>, vector<vector<Encomenda>>, vector<Estafeta>);
+    int maximizarLucro(vector<int>, vector<vector<Encomenda>>, vector<Estafeta>, int&);
+
+    vector<Estafeta> removeEstafeta(vector<Estafeta>, Estafeta);
+
+    vector<Encomenda> removeEncomenda(vector<Encomenda>, Encomenda);
 
 
 
