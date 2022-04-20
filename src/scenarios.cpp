@@ -96,7 +96,7 @@ vector<Estafeta> Scenarios::mergeEstafeta(vector<Estafeta> v1, vector<Estafeta> 
     int j = 0;
 
     while (i < v1.size() && j < v2.size()) {
-        if ((v1[i].getVol() + v1[i].getPeso() * 10) < (v2[j].getVol() + v2[j].getPeso() * 10)) {
+        if ((v1[i].getVol() + v1[i].getPeso()) < (v2[j].getVol() + v2[j].getPeso())) {
             res.push_back(v1[i]);
             i++;
         } else {
@@ -165,16 +165,21 @@ int max(int a, int b) {
 }
 
 vector<int> Scenarios::knapsackMisto(Estafeta estafeta, const vector<Encomenda> encomendas, vector<vector<Encomenda>>& usadas) {
-    vector<vector<int>> tabela(encomendas.size(), vector<int>(estafeta.getPeso() * 10 + estafeta.getVol()));
-    vector<vector<Encomenda>> delivery(estafeta.getPeso() * 10 + estafeta.getVol(), vector<Encomenda>());
-    for (int i = 0; i < encomendas.size() + 1; i++) {
-        for (int w = 0; w < estafeta.getPeso() * 10 + estafeta.getVol() + 1; w++) {
-            if (i == 0 || w == 0) {
+    vector<vector<int>> tabela(encomendas.size() + 1, vector<int>(estafeta.getPeso() + estafeta.getVol() + 1));
+    //vector<vector<Encomenda>> delivery(estafeta.getPeso() + estafeta.getVol() + 1, vector<Encomenda>{});
+    vector<vector<Encomenda>> delivery;
+    for (int v = 0; v < estafeta.getPeso() + estafeta.getVol() + 1; v++) {
+        vector<Encomenda> en;
+        delivery.push_back(en);
+    }
+    for (int i = 0; i <= encomendas.size(); i++) {
+        for (int w = 1; w < estafeta.getPeso() + estafeta.getVol() ; w++) {
+            if (i == 0) {
                 tabela[i][w] = 0;
             }
-            else if (encomendas[i - 1].getPeso() * 10 + encomendas[i - 1].getVolume() <= w) {
-                tabela[i][w] = max(encomendas[i - 1].getRecompensa() + tabela[i - 1][w - encomendas[i - 1].getPeso() * 10 - encomendas[i - 1].getVolume()], tabela[i - 1][w]);
-                if (tabela[i][w] == encomendas[i - 1].getRecompensa() + tabela[i - 1][w - encomendas[i - 1].getPeso() * 10 - encomendas[i - 1].getVolume()]) {
+            else if (encomendas[i - 1].getPeso() + encomendas[i - 1].getVolume() <= w) {
+                tabela[i][w] = max(encomendas[i - 1].getRecompensa() + tabela[i - 1][w - encomendas[i - 1].getPeso() - encomendas[i - 1].getVolume()], tabela[i - 1][w]);
+                if (tabela[i][w] == encomendas[i - 1].getRecompensa() + tabela[i - 1][w - encomendas[i - 1].getPeso() - encomendas[i - 1].getVolume()]) {
                     delivery[w].push_back(encomendas[i - 1]);
                 }
             }
@@ -193,7 +198,7 @@ int Scenarios::maximizarLucro(vector<int> tabela, vector<vector<Encomenda>> usad
     int index = -1;
 
     for (int i = 0; i < estafetas.size(); i++) {
-        int w = estafetas[i].getPeso() * 10 + estafetas[i].getVol();
+        int w = estafetas[i].getPeso() + estafetas[i].getVol();
         if (tabela[w] - usadas[w].size() * estafetas[i].getCusto() > max) {
             max = tabela[w] - usadas[w].size() * estafetas[i].getCusto();
             index = w;
