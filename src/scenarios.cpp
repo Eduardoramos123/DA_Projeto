@@ -56,16 +56,19 @@ int max(int a, int b) {
     return (a > b) ? a : b;
 }
 
-vector<int> Scenarios::knapsackMisto(const vector<Estafeta> estafetas, const vector<Encomenda> encomendas) {
-    Estafeta final = estafetas[estafetas.size() - 1];
-    vector<vector<int>> tabela(encomendas.size(), vector<int>(final.getPeso() * 10 + final.getVol()));
+vector<int> Scenarios::knapsackMisto(Estafeta estafeta, const vector<Encomenda> encomendas, vector<vector<Encomenda>>& usadas) {
+    vector<vector<int>> tabela(encomendas.size(), vector<int>(estafeta.getPeso() * 10 + estafeta.getVol()));
+    vector<vector<Encomenda>> delivery(estafeta.getPeso() * 10 + estafeta.getVol(), vector<Encomenda>());
     for (int i = 0; i < encomendas.size() + 1; i++) {
-        for (int w = 0; w < final.getPeso() * 10 + final.getVol() + 1; w++) {
+        for (int w = 0; w < estafeta.getPeso() * 10 + estafeta.getVol() + 1; w++) {
             if (i == 0 || w == 0) {
                 tabela[i][w] = 0;
             }
             else if (encomendas[i - 1].getPeso() * 10 + encomendas[i - 1].getVolume() <= w) {
                 tabela[i][w] = max(encomendas[i - 1].getRecompensa() + tabela[i - 1][w - encomendas[i - 1].getPeso() * 10 - encomendas[i - 1].getVolume()], tabela[i - 1][w]);
+                if (tabela[i][w] == encomendas[i - 1].getRecompensa() + tabela[i - 1][w - encomendas[i - 1].getPeso() * 10 - encomendas[i - 1].getVolume()]) {
+                    delivery[w].push_back(encomendas[i - 1]);
+                }
             }
             else {
                 tabela[i][w] = tabela[i - 1][w];
@@ -73,7 +76,22 @@ vector<int> Scenarios::knapsackMisto(const vector<Estafeta> estafetas, const vec
 
         }
     }
+    usadas = delivery;
     return tabela[tabela.size() - 1];
+}
+
+int Scenarios::maximizarLucro(vector<int> tabela, vector<vector<Encomenda>> usadas, vector<Estafeta> estafetas) {
+    int max = 0;
+    int index = -1;
+
+    for (int i = 0; i < estafetas.size(); i++) {
+        int w = estafetas[i].getPeso() * 10 + estafetas[i].getVol();
+        if (tabela[w] - usadas[w].size() * estafetas[i].getCusto() > max) {
+            max = tabela[w] - usadas[w].size() * estafetas[i].getCusto();
+            index = w;
+        }
+    }
+    return index;
 }
 
 void Scenarios::scenario1() {

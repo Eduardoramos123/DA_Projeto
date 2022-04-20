@@ -91,7 +91,9 @@ private:
      *
      * @return The a table with the best value a Estafeta can carry.
      */
-    vector<int> knapsackMisto(const vector<Estafeta>, const vector<Encomenda>);
+    vector<int> knapsackMisto(Estafeta, const vector<Encomenda>, vector<vector<Encomenda>>&);
+
+    int maximizarLucro(vector<int>, vector<vector<Encomenda>>, vector<Estafeta>);
 
 
 
