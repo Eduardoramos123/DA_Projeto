@@ -36,9 +36,27 @@ void Empresa::initEncomendas() {
     file.close();
 }
 
+void Empresa::initExpresso() {
+    ifstream file("../data/expresso.txt"); //mudar path
+
+    string var1, var2, var3, var4;
+    file >> var1 >> var2 >> var3 >> var4;
+
+    int i = 0;
+
+    double v, p, recompensa, tempo;
+    while (file >> v >> p >> recompensa >> tempo) {
+        Encomenda e = Encomenda(i, v, p, recompensa, tempo);
+        i++;
+        expresso.push_back(e);
+    }
+    file.close();
+}
+
 Empresa::Empresa() {
     initEstafetas();
     initEncomendas();
+    initExpresso();
 }
 
 vector<Encomenda> Empresa::getEncomendas() const {
@@ -47,6 +65,10 @@ vector<Encomenda> Empresa::getEncomendas() const {
 
 vector<Estafeta> Empresa::getEstafetas() const {
     return estafetas;
+}
+
+vector<Encomenda> Empresa::getExpresso() const {
+    return expresso;
 }
 
 void Empresa::printEstafetas() const {

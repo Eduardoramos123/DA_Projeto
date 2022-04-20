@@ -30,6 +30,11 @@ void Scenarios::sortEncomendasVolDesc(vector<Encomenda>& encomendas) const {
          [](const Encomenda& e1, const Encomenda& e2) { return e2.getVolume() < e1.getVolume(); });
 }
 
+void Scenarios::sortEncomendasTempoAsc(vector<Encomenda>& encomendas) const {
+    sort(encomendas.begin(), encomendas.end(), 
+         [](const Encomenda& e1, const Encomenda& e2) { return e1.getTempo() < e2.getTempo(); });
+}
+
 bool Scenarios::fits(const Encomenda& encomenda, const Estafeta& estafeta) const {
     return (encomenda.getVolume() <= estafeta.getVol()) || 
            (encomenda.getPeso() <= estafeta.getVol());
@@ -99,4 +104,27 @@ void Scenarios::scenario1() {
 
 void Scenarios::scenario2() {}
 
-void Scenarios::scenario3() {}
+void Scenarios::scenario3() {
+    vector<Encomenda> expresso = empresa->getExpresso();
+
+    sortEncomendasTempoAsc(expresso);
+
+    vector<Encomenda> encomendasEntregues;
+    int tempo = 0;
+    const int tempoMax = 8 * 60 * 60; // Tempo em segundos das 9h00 às 17h00
+
+    for (const auto& e : expresso) {
+        int tempoAux = e.getTempo();
+        if (tempoAux + tempo <= tempoMax) {
+            tempo += tempoAux;
+            encomendasEntregues.push_back(e);
+        }
+        else break;
+    }
+
+    cout << "Foram entregues " << encomendasEntregues.size() << "/" << expresso.size() << " encomendas com um tempo médio de " <<
+            tempo / encomendasEntregues.size() << " segundos." << endl <<
+            "Tempo restante: " << tempoMax - tempo << " segundos." << endl <<
+            "Lucro total: " << lucro(encomendasEntregues) << "." << endl;
+
+}

@@ -36,6 +36,14 @@ private:
     void sortEncomendasPesoDesc(vector<Encomenda>& encomendas) const;
 
     /**
+     * Sorts a vector of Encomendas in ascending
+     * order of duration using the STL sort method.
+     *
+     * @param encomendas The vector to be sorted.
+     */
+    void sortEncomendasTempoAsc(vector<Encomenda>& encomendas) const;
+
+    /**
      * Sorts a vector of Encomendas in descending
      * order of volume using the STL sort method.
      *
