@@ -20,14 +20,9 @@ void Scenarios::sortEstafetasAsc(vector<Estafeta>& estafetas) const {
          [](const Estafeta& e1, const Estafeta& e2) { return e1.getPeso() * e1.getVol() < e2.getPeso() * e2.getVol(); });
 }
 
-void Scenarios::sortEncomendasPesoDesc(vector<Encomenda>& encomendas) const {
+void Scenarios::sortEncomendasDesc(vector<Encomenda>& encomendas) const {
     sort(encomendas.begin(), encomendas.end(),
-         [](const Encomenda& e1, const Encomenda& e2) { return e2.getPeso() < e1.getPeso(); });
-}
-
-void Scenarios::sortEncomendasVolDesc(vector<Encomenda>& encomendas) const {
-    sort(encomendas.begin(), encomendas.end(),
-         [](const Encomenda& e1, const Encomenda& e2) { return e2.getVolume() < e1.getVolume(); });
+         [](const Encomenda& e1, const Encomenda& e2) { return e2.getPeso() * e2.getVolume() < e1.getPeso() * e1.getVolume(); });
 }
 
 void Scenarios::sortEncomendasTempoAsc(vector<Encomenda>& encomendas) const {
@@ -144,8 +139,8 @@ vector<Estafeta> Scenarios::mergeSortEstafetaPesoVolume(vector<Estafeta> v, int 
 }
 
 bool Scenarios::fits(const Encomenda& encomenda, const Estafeta& estafeta) const {
-    return (encomenda.getVolume() <= estafeta.getVol()) ||
-           (encomenda.getPeso() <= estafeta.getVol());
+    return (encomenda.getVolume() <= estafeta.getVol()) &&
+           (encomenda.getPeso() <= estafeta.getPeso());
 }
 
 int Scenarios::custo(const vector<Estafeta>& estafetas) const {
@@ -233,7 +228,7 @@ void Scenarios::scenario1() {
     vector<Encomenda> encomendas = empresa->getEncomendas();
 
     sortEstafetasDesc(estafetas);
-    sortEncomendasPesoDesc(encomendas);
+    sortEncomendasDesc(encomendas);
 
     vector<Estafeta> estafetasUsados;
     vector<Encomenda> encomendasEntregues;

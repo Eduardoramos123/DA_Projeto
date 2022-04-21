@@ -29,11 +29,12 @@ private:
 
     /**
      * Sorts a vector of Encomendas in descending
-     * order of weigth using the STL sort method.
+     * order of weigth * volume using the STL 
+     * sort method.
      *
      * @param encomendas The vector to be sorted.
      */
-    void sortEncomendasPesoDesc(vector<Encomenda>& encomendas) const;
+    void sortEncomendasDesc(vector<Encomenda>& encomendas) const;
 
     /**
      * Sorts a vector of Encomendas in ascending
@@ -42,14 +43,6 @@ private:
      * @param encomendas The vector to be sorted.
      */
     void sortEncomendasTempoAsc(vector<Encomenda>& encomendas) const;
-
-    /**
-     * Sorts a vector of Encomendas in descending
-     * order of volume using the STL sort method.
-     *
-     * @param encomendas The vector to be sorted.
-     */
-    void sortEncomendasVolDesc(vector<Encomenda>& encomendas) const;
 
     vector<Encomenda> mergeEncomenda(vector<Encomenda>, vector<Encomenda>);
 
