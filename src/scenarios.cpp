@@ -179,7 +179,7 @@ vector<int> Scenarios::knapsackMisto(Estafeta estafeta, const vector<Encomenda> 
             }
             else if (encomendas[i - 1].getPeso() * 10 + encomendas[i - 1].getVolume() <= w) {
                 tabela[i][w] = max(encomendas[i - 1].getRecompensa() + tabela[i - 1][w - encomendas[i - 1].getPeso() * 10 - encomendas[i - 1].getVolume()], tabela[i - 1][w]);
-                if (tabela[i][w] == encomendas[i - 1].getRecompensa() + tabela[i - 1][w - encomendas[i - 1].getPeso() * 10 - encomendas[i - 1].getVolume()]) {
+                if (tabela[i][w] != tabela[i - 1][w]) {
                     delivery[w].push_back(encomendas[i - 1]);
                 }
             }
@@ -296,9 +296,12 @@ void Scenarios::scenario2() {
         int index = maximizarLucro(tabela, usadas, estafetas, estafeta_index);
         profit += tabela[index];
         numero_estafetas++;
-        numero_encomendas += usadas[index].size();
         for (int i = 0; i < usadas[index].size(); i++) {
-            encomendas = removeEncomenda(encomendas, usadas[index][i]);
+            if (fits(usadas[index][i], estafetas[estafeta_index])) {
+                estafetas[estafeta_index].addEntrega(usadas[index][i]);
+                encomendas = removeEncomenda(encomendas, usadas[index][i]);
+                numero_encomendas++;
+            }
         }
         estafetas = removeEstafeta(estafetas, estafetas[estafeta_index]);
     }
