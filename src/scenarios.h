@@ -101,7 +101,7 @@ private:
      */
     vector<int> knapsackMisto(Estafeta, const vector<Encomenda>, vector<vector<Encomenda>>&);
 
-    int maximizarLucro(vector<int>, vector<vector<Encomenda>>, vector<Estafeta>, int&);
+    int maximizarLucro(vector<int>, vector<Estafeta>, int&);
 
     vector<Estafeta> removeEstafeta(vector<Estafeta>, Estafeta);
 

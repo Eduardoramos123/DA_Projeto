@@ -11,27 +11,27 @@ Scenarios::~Scenarios() {
 }
 
 void Scenarios::sortEstafetasDesc(vector<Estafeta>& estafetas) const {
-    sort(estafetas.begin(), estafetas.end(), 
+    sort(estafetas.begin(), estafetas.end(),
          [](const Estafeta& e1, const Estafeta& e2) { return e2.getPeso() * e2.getVol() < e1.getPeso() * e1.getVol(); });
 }
 
 void Scenarios::sortEstafetasAsc(vector<Estafeta>& estafetas) const {
-    sort(estafetas.begin(), estafetas.end(), 
+    sort(estafetas.begin(), estafetas.end(),
          [](const Estafeta& e1, const Estafeta& e2) { return e1.getPeso() * e1.getVol() < e2.getPeso() * e2.getVol(); });
 }
 
 void Scenarios::sortEncomendasPesoDesc(vector<Encomenda>& encomendas) const {
-    sort(encomendas.begin(), encomendas.end(), 
+    sort(encomendas.begin(), encomendas.end(),
          [](const Encomenda& e1, const Encomenda& e2) { return e2.getPeso() < e1.getPeso(); });
 }
 
 void Scenarios::sortEncomendasVolDesc(vector<Encomenda>& encomendas) const {
-    sort(encomendas.begin(), encomendas.end(), 
+    sort(encomendas.begin(), encomendas.end(),
          [](const Encomenda& e1, const Encomenda& e2) { return e2.getVolume() < e1.getVolume(); });
 }
 
 void Scenarios::sortEncomendasTempoAsc(vector<Encomenda>& encomendas) const {
-    sort(encomendas.begin(), encomendas.end(), 
+    sort(encomendas.begin(), encomendas.end(),
          [](const Encomenda& e1, const Encomenda& e2) { return e1.getTempo() < e2.getTempo(); });
 }
 
@@ -144,7 +144,7 @@ vector<Estafeta> Scenarios::mergeSortEstafetaPesoVolume(vector<Estafeta> v, int 
 }
 
 bool Scenarios::fits(const Encomenda& encomenda, const Estafeta& estafeta) const {
-    return (encomenda.getVolume() <= estafeta.getVol()) || 
+    return (encomenda.getVolume() <= estafeta.getVol()) ||
            (encomenda.getPeso() <= estafeta.getVol());
 }
 
@@ -193,14 +193,14 @@ vector<int> Scenarios::knapsackMisto(Estafeta estafeta, const vector<Encomenda> 
     return tabela[tabela.size() - 1];
 }
 
-int Scenarios::maximizarLucro(vector<int> tabela, vector<vector<Encomenda>> usadas, vector<Estafeta> estafetas, int &index_estafeta) {
+int Scenarios::maximizarLucro(vector<int> tabela, vector<Estafeta> estafetas, int &index_estafeta) {
     int max = 0;
     int index = -1;
 
     for (int i = 0; i < estafetas.size(); i++) {
         int w = estafetas[i].getPeso() * 10 + estafetas[i].getVol();
-        if (tabela[w] - usadas[w].size() * estafetas[i].getCusto() > max) {
-            max = tabela[w] - usadas[w].size() * estafetas[i].getCusto();
+        if (tabela[w] - estafetas[i].getCusto() >= max) {
+            max = tabela[w] - estafetas[i].getCusto();
             index = w;
             index_estafeta = i;
         }
@@ -243,13 +243,13 @@ void Scenarios::scenario1() {
     for (const auto& encomenda : encomendas) {
         bool delivered = false;
 
-		for (auto& estafeta : estafetasUsados) {
+        for (auto& estafeta : estafetasUsados) {
             if (fits(encomenda, estafeta)) {
                 delivered = true;
                 estafeta.addEntrega(encomenda);
                 break;
             }
-		}
+        }
 
         if (!delivered) {
             // Need to use a new estafeta
@@ -273,9 +273,9 @@ void Scenarios::scenario1() {
     }
 
     cout << "Foram entregues " << encomendasEntregues.size() << "/" << encomendas.size() << " encomendas e foram usados " <<
-            estafetasUsados.size() << "/" << nEstafetas << " estafetas." << endl <<
-            "Lucro total: " << lucro(encomendasEntregues) - custo(estafetasUsados) << "." << endl;
-    
+         estafetasUsados.size() << "/" << nEstafetas << " estafetas." << endl <<
+         "Lucro total: " << lucro(encomendasEntregues) - custo(estafetasUsados) << "." << endl;
+
 }
 
 void Scenarios::scenario2() {
@@ -293,14 +293,17 @@ void Scenarios::scenario2() {
         vector<vector<Encomenda>> usadas;
         vector<int> tabela = knapsackMisto(estafetas[estafetas.size() - 1], encomendas, usadas);
         int estafeta_index;
-        int index = maximizarLucro(tabela, usadas, estafetas, estafeta_index);
-        profit += tabela[index];
+        int index = maximizarLucro(tabela, estafetas, estafeta_index);
+        if (index == -1) {
+            break;
+        }
         numero_estafetas++;
         for (int i = 0; i < usadas[index].size(); i++) {
             if (fits(usadas[index][i], estafetas[estafeta_index])) {
                 estafetas[estafeta_index].addEntrega(usadas[index][i]);
                 encomendas = removeEncomenda(encomendas, usadas[index][i]);
                 numero_encomendas++;
+                profit += usadas[index][i].getRecompensa();
             }
         }
         estafetas = removeEstafeta(estafetas, estafetas[estafeta_index]);
@@ -330,8 +333,8 @@ void Scenarios::scenario3() {
     }
 
     cout << "Foram entregues " << encomendasEntregues.size() << "/" << expresso.size() << " encomendas com um tempo médio de " <<
-            tempo / encomendasEntregues.size() << " segundos." << endl <<
-            "Tempo restante: " << tempoMax - tempo << " segundos." << endl <<
-            "Lucro total: " << lucro(encomendasEntregues) << "." << endl;
+         tempo / encomendasEntregues.size() << " segundos." << endl <<
+         "Tempo restante: " << tempoMax - tempo << " segundos." << endl <<
+         "Lucro total: " << lucro(encomendasEntregues) << "." << endl;
 
 }
