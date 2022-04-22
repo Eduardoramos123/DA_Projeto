@@ -18,13 +18,62 @@ private:
     int custo;
     vector<Encomenda> entregas;
 public:
+
+    /**
+     * Default estafeta constructor
+     */
     Estafeta();
-    Estafeta(string, int, int, int);
+
+    /**
+     * Parametized estafeta constructor
+     * 
+     * @param matricula The plate number
+     * @param volMax The maximum volume the Estafeta can carry
+     * @param pesoMax the maximum weight the Estafeta can carry
+     * @param custo The cost of a trip
+     */
+    Estafeta(string matricula, int volMax, int pesoMax, int custo);
+
+    /**
+     * Gets the available volume
+     * 
+     * @return Volume
+     */
     int getVol() const;
+
+    /**
+     * Gets the available peso
+     * 
+     * @return Weight
+     */
     int getPeso() const;
+
+    /**
+     * Gets the cost of a trip
+     * 
+     * @return Cost
+     */
     int getCusto() const;
+
+    /**
+     * Gets the Encomendas assigned
+     * 
+     * @return Vector of Encomendas
+     */
     vector<Encomenda> getEntregas() const;
-    void addEntrega(const Encomenda&);
+
+    /**
+     * Assigns a new Encomenda.
+     * 
+     * @param encomenda The encomenda to assign
+     */
+    void addEntrega(const Encomenda& encomenda);
+
+    /**
+     * Gets the plate number
+     * 
+     * @return Plate number
+     */
     string getMatricula() const;
 };
 

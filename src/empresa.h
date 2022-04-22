@@ -17,12 +17,33 @@ private:
     void initEncomendas();
     void initExpresso();
 public:
+
+    /**
+     * Default empresa constructor
+     */
     Empresa();
+
+    /**
+     * Gets the Encomendas that need to be delivered
+     * 
+     * @return A vector of Encomendas
+     */
     vector<Encomenda> getEncomendas() const;
+
+    /**
+     * Gets the registered Estafetas
+     * 
+     * @return A vector of Estafetas
+     */
     vector<Estafeta> getEstafetas() const;
+
+    /**
+     * Gets the Encomendas that are to be
+     * expresso delivered
+     * 
+     * @return A vector of Encomendas
+     */
     vector<Encomenda> getExpresso() const;
-    void printEstafetas() const;
-    void printEncomendas() const;
 };
 
 #endif //EMPRESA_H

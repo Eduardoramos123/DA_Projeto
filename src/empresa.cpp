@@ -70,17 +70,3 @@ vector<Estafeta> Empresa::getEstafetas() const {
 vector<Encomenda> Empresa::getExpresso() const {
     return expresso;
 }
-
-void Empresa::printEstafetas() const {
-    for (int i = 0; i < estafetas.size(); i++) {
-        cout << "Matricula: " << estafetas[i].getMatricula() << " | Vol: " << estafetas[i].getVol() <<
-            " | Peso: " << estafetas[i].getPeso() << " | Custo: " << estafetas[i].getCusto() << endl;
-    }
-}
-
-void Empresa::printEncomendas() const {
-    for (int i = 0; i < encomendas.size(); i++) {
-        cout << "ID: " << encomendas[i].getId() << " | Vol: " << encomendas[i].getVolume() << " | Peso: " << encomendas[i].getPeso() << 
-                " | Recompensa: " << encomendas[i].getRecompensa() << " | Tempo: " << encomendas[i].getTempo() << endl;
-    }
-}
