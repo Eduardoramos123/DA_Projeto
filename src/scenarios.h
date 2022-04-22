@@ -63,7 +63,7 @@ private:
      *
      * @return Organized vector.
      */
-    vector<Encomenda> mergeSortEncomendaPesoVolume(vector<Encomenda>, int, int);
+    vector<Encomenda> mergeSortEncomendaRecompensa(vector<Encomenda>, int, int);
 
     /**
      * Merges to vectors in one organized vector.
@@ -134,7 +134,8 @@ private:
      *
      * @param tabela Last line of tabela that gives the profit of each estafeta.
      * @param estafetas The vector of Estafetas to get the diffrent Estafetas.
-     * @param index_estafeta The indexr of the Encomenda that has the best profit.
+     * @param index_estafeta The index of the Encomenda that has the best profit.
+     * @param usados A vecctor of used encomendas by each Estafeta.
      *
      * @return Returns the Weight * 10 + Volume of the best Estafeta.
      */

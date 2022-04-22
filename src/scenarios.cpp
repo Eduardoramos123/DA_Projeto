@@ -37,7 +37,7 @@ vector<Encomenda> Scenarios::mergeEncomenda(vector<Encomenda> v1, vector<Encomen
     int j = 0;
 
     while (i < v1.size() && j < v2.size()) {
-        if ((v1[i].getPeso() * 10 + v1[i].getVolume()) < (v2[j].getPeso() * 10 + v2[j].getVolume())) {
+        if (v1[i].getRecompensa() > v2[j].getRecompensa()) {
             res.push_back(v1[i]);
             i++;
         } else {
@@ -57,7 +57,7 @@ vector<Encomenda> Scenarios::mergeEncomenda(vector<Encomenda> v1, vector<Encomen
     return res;
 }
 
-vector<Encomenda> Scenarios::mergeSortEncomendaPesoVolume(vector<Encomenda> v, int init, int fim) {
+vector<Encomenda> Scenarios::mergeSortEncomendaRecompensa(vector<Encomenda> v, int init, int fim) {
     if (v.size() <= 1) {
         return v;
     }
@@ -78,8 +78,8 @@ vector<Encomenda> Scenarios::mergeSortEncomendaPesoVolume(vector<Encomenda> v, i
     vector<Encomenda> final1;
     vector<Encomenda> final2;
 
-    final1 = mergeSortEncomendaPesoVolume(part1, 0, part1.size());
-    final2 = mergeSortEncomendaPesoVolume(part2, 0, part2.size());
+    final1 = mergeSortEncomendaRecompensa(part1, 0, part1.size());
+    final2 = mergeSortEncomendaRecompensa(part2, 0, part2.size());
 
     return mergeEncomenda(final1, final2);
 }
@@ -285,7 +285,7 @@ void Scenarios::scenario2() {
     vector<Encomenda> encomendas = empresa->getEncomendas();
 
     estafetas = mergeSortEstafetaPesoVolume(estafetas, 0, estafetas.size());
-    //encomendas = mergeSortEncomendaPesoVolume(encomendas, 0, encomendas.size());
+    encomendas = mergeSortEncomendaRecompensa(encomendas, 0, encomendas.size());
 
     int profit = 0;
     int numero_estafetas = 0;
