@@ -44,12 +44,46 @@ private:
      */
     void sortEncomendasTempoAsc(vector<Encomenda>& encomendas) const;
 
+    /**
+     * Merges to vectors in one organized vector.
+     *
+     * @param v1 Vector 1 to be merged.
+     * @param v2 Vector 2 to be merged.
+     * @return Organized Merged Vector.
+     */
     vector<Encomenda> mergeEncomenda(vector<Encomenda>, vector<Encomenda>);
 
+    /**
+     * Organizes a vector through a merge
+     * sort.
+     *
+     * @param v Vector to be merged.
+     * @param init First index of the vector.
+     * @param fim Size of the vector.
+     *
+     * @return Organized vector.
+     */
     vector<Encomenda> mergeSortEncomendaPesoVolume(vector<Encomenda>, int, int);
 
+    /**
+     * Merges to vectors in one organized vector.
+     *
+     * @param v1 Vector 1 to be merged.
+     * @param v2 Vector 2 to be merged.
+     * @return Organized Merged Vector.
+     */
     vector<Estafeta> mergeEstafeta(vector<Estafeta>, vector<Estafeta>);
 
+    /**
+     * Organizes a vector through a merge
+     * sort.
+     *
+     * @param v Vector to be merged.
+     * @param init First index of the vector.
+     * @param fim Size of the vector.
+     *
+     * @return Organized vector.
+     */
     vector<Estafeta> mergeSortEstafetaPesoVolume(vector<Estafeta>, int, int);
 
     /**
@@ -84,20 +118,46 @@ private:
     int lucro(const vector<Encomenda>&) const;
 
     /**
-     * Calculates the maximum value that
-     * can be carried by the best Estafeta.
+     * Caculates a table that gives the best profit
+     * for each value of weight and volume a estafeta can have.
      *
-     * @param encomendas The vector of Estafetas to get the different max carries.
+     * @param estafeta Estafeta which has the higher Weight * 10 + Volume.
      * @param encomendas The vector of Encomendas to get the diffrent Encomendas that are possible to carry.
+     * @param usados The vector of Encomendas that were used by Estafetas.
      *
      * @return The a table with the best value a Estafeta can carry.
      */
     vector<int> knapsackMisto(Estafeta, const vector<Encomenda>, vector<vector<Encomenda>>&);
 
+    /**
+     * Gives the index of the estafeta that has the higher profit.
+     *
+     * @param tabela Last line of tabela that gives the profit of each estafeta.
+     * @param estafetas The vector of Estafetas to get the diffrent Estafetas.
+     * @param index_estafeta The indexr of the Encomenda that has the best profit.
+     *
+     * @return Returns the Weight * 10 + Volume of the best Estafeta.
+     */
     int maximizarLucro(vector<int>, vector<Estafeta>, int&);
 
+    /**
+     * Removes Estafeta from a vector.
+     *
+     * @param estafetas Vector of estafetas.
+     * @param estafeta  Estafeta to be removed from the vector.
+     *
+     * @return Returns The vector estafetas without the Estafeta.
+     */
     vector<Estafeta> removeEstafeta(vector<Estafeta>, Estafeta);
 
+    /**
+     * Removes Encomenda from a vector.
+     *
+     * @param encomendas Vector of encomendas.
+     * @param encomenda  Encomenda to be removed from the vector.
+     *
+     * @return Returns The vector encomendas without the Encomenda.
+     */
     vector<Encomenda> removeEncomenda(vector<Encomenda>, Encomenda);
 
 
