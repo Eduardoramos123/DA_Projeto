@@ -284,6 +284,9 @@ void Scenarios::scenario2() {
     vector<Estafeta> estafetas = empresa->getEstafetas();
     vector<Encomenda> encomendas = empresa->getEncomendas();
 
+    const int nEstafetas = estafetas.size();
+    const int nEncomendas = encomendas.size();
+
     estafetas = mergeSortEstafetaPesoVolume(estafetas, 0, estafetas.size());
     encomendas = mergeSortEncomendaRecompensa(encomendas, 0, encomendas.size());
 
@@ -312,9 +315,9 @@ void Scenarios::scenario2() {
         estafetas = removeEstafeta(estafetas, estafetas[estafeta_index]);
     }
 
-    cout << "Lucro: " << profit << endl;
-    cout << "Estafetas usados: " << numero_estafetas << endl;
-    cout << "Encomendas entregues: " << numero_encomendas << endl;
+    cout << "Foram entregues " << numero_encomendas << "/" << nEncomendas << " encomendas e foram usados " <<
+            numero_estafetas << "/" << nEstafetas << " estafetas." << endl <<
+            "Lucro total: " << profit << endl;
 }
 
 void Scenarios::scenario3() {
