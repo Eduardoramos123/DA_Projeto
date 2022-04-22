@@ -30,6 +30,60 @@ void Scenarios::sortEncomendasTempoAsc(vector<Encomenda>& encomendas) const {
          [](const Encomenda& e1, const Encomenda& e2) { return e1.getTempo() < e2.getTempo(); });
 }
 
+vector<Encomenda> Scenarios::mergeEncomenda(vector<Encomenda> v1, vector<Encomenda> v2) {
+    vector<Encomenda> res;
+
+    int i = 0;
+    int j = 0;
+
+    while (i < v1.size() && j < v2.size()) {
+        if (v1[i].getRecompensa() > v2[j].getRecompensa()) {
+            res.push_back(v1[i]);
+            i++;
+        } else {
+            res.push_back(v2[j]);
+            j++;
+        }
+    }
+
+    while(i < v1.size()) {
+        res.push_back(v1[i]);
+        i++;
+    }
+    while(j < v2.size()) {
+        res.push_back(v2[j]);
+        j++;
+    }
+    return res;
+}
+
+vector<Encomenda> Scenarios::mergeSortEncomendaRecompensa(vector<Encomenda> v, int init, int fim) {
+    if (v.size() <= 1) {
+        return v;
+    }
+
+    int medio = (init + fim) / 2;
+
+    vector<Encomenda> part1;
+    vector<Encomenda> part2;
+
+    for (int i = init; i < medio; i++) {
+        part1.push_back(v[i]);
+    }
+
+    for (int i = medio; i < fim; i++) {
+        part2.push_back(v[i]);
+    }
+
+    vector<Encomenda> final1;
+    vector<Encomenda> final2;
+
+    final1 = mergeSortEncomendaRecompensa(part1, 0, part1.size());
+    final2 = mergeSortEncomendaRecompensa(part2, 0, part2.size());
+
+    return mergeEncomenda(final1, final2);
+}
+
 vector<Estafeta> Scenarios::mergeEstafeta(vector<Estafeta> v1, vector<Estafeta> v2) {
     vector<Estafeta> res;
 
@@ -134,14 +188,21 @@ vector<int> Scenarios::knapsackMisto(Estafeta estafeta, const vector<Encomenda> 
     return tabela[tabela.size() - 1];
 }
 
-int Scenarios::maximizarLucro(vector<int> tabela, vector<Estafeta> estafetas, int &index_estafeta) {
+int Scenarios::maximizarLucro(vector<int> tabela, vector<Estafeta> estafetas, int &index_estafeta, vector<vector<Encomenda>> usadas) {
     int max = 0;
     int index = -1;
 
     for (int i = 0; i < estafetas.size(); i++) {
+        int profit = 0;
         int w = estafetas[i].getPeso() * 10 + estafetas[i].getVol();
-        if (tabela[w] - estafetas[i].getCusto() >= max) {
-            max = tabela[w] - estafetas[i].getCusto();
+        for (int j = 0; j < usadas[w].size(); j++) {
+            if (fits(usadas[w][j], estafetas[i])) {
+                estafetas[i].addEntrega(usadas[w][j]);
+                profit += usadas[w][j].getRecompensa();
+            }
+        }
+        if (profit - estafetas[i].getCusto() >= max) {
+            max = profit - estafetas[i].getCusto();
             index = w;
             index_estafeta = i;
         }
@@ -227,6 +288,7 @@ void Scenarios::scenario2() {
     const int nEncomendas = encomendas.size();
 
     estafetas = mergeSortEstafetaPesoVolume(estafetas, 0, estafetas.size());
+    encomendas = mergeSortEncomendaRecompensa(encomendas, 0, encomendas.size());
 
     int profit = 0;
     int numero_estafetas = 0;
@@ -236,7 +298,7 @@ void Scenarios::scenario2() {
         vector<vector<Encomenda>> usadas;
         vector<int> tabela = knapsackMisto(estafetas[estafetas.size() - 1], encomendas, usadas);
         int estafeta_index;
-        int index = maximizarLucro(tabela, estafetas, estafeta_index);
+        int index = maximizarLucro(tabela, estafetas, estafeta_index, usadas);
         if (index == -1) {
             break;
         }

@@ -51,6 +51,27 @@ private:
      * @param v2 Vector 2 to be merged.
      * @return Organized Merged Vector.
      */
+    vector<Encomenda> mergeEncomenda(vector<Encomenda>, vector<Encomenda>);
+
+    /**
+     * Organizes a vector through a merge
+     * sort.
+     *
+     * @param v Vector to be merged.
+     * @param init First index of the vector.
+     * @param fim Size of the vector.
+     *
+     * @return Organized vector.
+     */
+    vector<Encomenda> mergeSortEncomendaRecompensa(vector<Encomenda>, int, int);
+
+    /**
+     * Merges to vectors in one organized vector.
+     *
+     * @param v1 Vector 1 to be merged.
+     * @param v2 Vector 2 to be merged.
+     * @return Organized Merged Vector.
+     */
     vector<Estafeta> mergeEstafeta(vector<Estafeta>, vector<Estafeta>);
 
     /**
@@ -113,11 +134,12 @@ private:
      *
      * @param tabela Last line of tabela that gives the profit of each estafeta.
      * @param estafetas The vector of Estafetas to get the diffrent Estafetas.
-     * @param index_estafeta The indexr of the Encomenda that has the best profit.
+     * @param index_estafeta The index of the Encomenda that has the best profit.
+     * @param usados A vecctor of used encomendas by each Estafeta.
      *
      * @return Returns the Weight * 10 + Volume of the best Estafeta.
      */
-    int maximizarLucro(vector<int>, vector<Estafeta>, int&);
+    int maximizarLucro(vector<int>, vector<Estafeta>, int&, vector<vector<Encomenda>>);
 
     /**
      * Removes Estafeta from a vector.
