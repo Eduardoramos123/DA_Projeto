@@ -21,6 +21,5 @@ Assuming you are inside the build directory that you created in the previous sec
 > ./DA_Projeto <scenario nr (between 1 and 3)>
 
 ## Developers
-* Daniel António Mendes Novais
 * Eduardo Luís Tronjo Ramos
 * Emanuel Silva Gestosa
