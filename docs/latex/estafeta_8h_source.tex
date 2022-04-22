@@ -1,0 +1,46 @@
+\hypertarget{estafeta_8h_source}{}\doxysection{estafeta.\+h}
+\label{estafeta_8h_source}\index{src/estafeta.h@{src/estafeta.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef ESTAFETA\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define ESTAFETA\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}encomenda.h"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{using namespace  }std;}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{classEstafeta}{Estafeta}} \{}
+\DoxyCodeLine{12 \textcolor{keyword}{private}:}
+\DoxyCodeLine{13     \textcolor{keywordtype}{string} matricula;}
+\DoxyCodeLine{14     \textcolor{keywordtype}{int} volMax;}
+\DoxyCodeLine{15     \textcolor{keywordtype}{int} currVol;}
+\DoxyCodeLine{16     \textcolor{keywordtype}{int} pesoMax;}
+\DoxyCodeLine{17     \textcolor{keywordtype}{int} currPeso;}
+\DoxyCodeLine{18     \textcolor{keywordtype}{int} custo;}
+\DoxyCodeLine{19     vector<Encomenda> entregas;}
+\DoxyCodeLine{20 \textcolor{keyword}{public}:}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{25     \mbox{\hyperlink{classEstafeta_a9eabe4918059c7907eb20064d01bbc2a}{Estafeta}}();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{35     \mbox{\hyperlink{classEstafeta_a9eabe4918059c7907eb20064d01bbc2a}{Estafeta}}(\textcolor{keywordtype}{string} matricula, \textcolor{keywordtype}{int} volMax, \textcolor{keywordtype}{int} pesoMax, \textcolor{keywordtype}{int} custo);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{int} \mbox{\hyperlink{classEstafeta_af3fa512a3c2a8c51a9b904a7f82c7df8}{getVol}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{49     \textcolor{keywordtype}{int} \mbox{\hyperlink{classEstafeta_a6ff27214929e9d47bff3f0a1464dbf58}{getPeso}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{int} \mbox{\hyperlink{classEstafeta_aecd27e21c45b9ad6d1e550f792121757}{getCusto}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{63     vector<Encomenda> \mbox{\hyperlink{classEstafeta_a35d16d7f5c6319025e2b8914eba261f4}{getEntregas}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{70     \textcolor{keywordtype}{void} \mbox{\hyperlink{classEstafeta_aa5bc8ae6e98e9ab179bf84faf81a7271}{addEntrega}}(\textcolor{keyword}{const} \mbox{\hyperlink{classEncomenda}{Encomenda}}\& encomenda);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{77     \textcolor{keywordtype}{string} \mbox{\hyperlink{classEstafeta_a80ec8573f677531683191b3ce8f3c106}{getMatricula}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{78 \};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//ESTAFETA\_H}}
+
+\end{DoxyCode}

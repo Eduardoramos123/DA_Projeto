@@ -1,0 +1,88 @@
+\hypertarget{classEmpresa}{}\doxysection{Empresa Class Reference}
+\label{classEmpresa}\index{Empresa@{Empresa}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEmpresa_aff124b958356c479ab50ddf4cf302193}{Empresa}} ()
+\item 
+vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ \mbox{\hyperlink{classEmpresa_a5f1c9f30edd607fe90f3de63ce9d4e0a}{get\+Encomendas}} () const
+\item 
+vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$ \mbox{\hyperlink{classEmpresa_a2a3cf2e6260e2ab74e40f3915ec52de0}{get\+Estafetas}} () const
+\item 
+vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ \mbox{\hyperlink{classEmpresa_a0cd06acbf275826cdd494b87ca52978c}{get\+Expresso}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEmpresa_ad3eed25571502b59d490ae68fb5965e7}\label{classEmpresa_ad3eed25571502b59d490ae68fb5965e7}} 
+void {\bfseries init\+Estafetas} ()
+\item 
+\mbox{\Hypertarget{classEmpresa_a4af93fd9e6b8adb8c91ad0e11e7f8b4e}\label{classEmpresa_a4af93fd9e6b8adb8c91ad0e11e7f8b4e}} 
+void {\bfseries init\+Encomendas} ()
+\item 
+\mbox{\Hypertarget{classEmpresa_ace92f993743a1ad4c37dbcc38586b137}\label{classEmpresa_ace92f993743a1ad4c37dbcc38586b137}} 
+void {\bfseries init\+Expresso} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEmpresa_a17ce1e837b66a507bbce6266e3ea20d7}\label{classEmpresa_a17ce1e837b66a507bbce6266e3ea20d7}} 
+vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$ {\bfseries estafetas}
+\item 
+\mbox{\Hypertarget{classEmpresa_a2730ca401a304847eccdaa83b3f4f6e1}\label{classEmpresa_a2730ca401a304847eccdaa83b3f4f6e1}} 
+vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ {\bfseries encomendas}
+\item 
+\mbox{\Hypertarget{classEmpresa_a2bcb1f1a5b7d4c10626e3fb829368375}\label{classEmpresa_a2bcb1f1a5b7d4c10626e3fb829368375}} 
+vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ {\bfseries expresso}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEmpresa_aff124b958356c479ab50ddf4cf302193}\label{classEmpresa_aff124b958356c479ab50ddf4cf302193}} 
+\index{Empresa@{Empresa}!Empresa@{Empresa}}
+\index{Empresa@{Empresa}!Empresa@{Empresa}}
+\doxysubsubsection{\texorpdfstring{Empresa()}{Empresa()}}
+{\footnotesize\ttfamily Empresa\+::\+Empresa (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default empresa constructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEmpresa_a5f1c9f30edd607fe90f3de63ce9d4e0a}\label{classEmpresa_a5f1c9f30edd607fe90f3de63ce9d4e0a}} 
+\index{Empresa@{Empresa}!getEncomendas@{getEncomendas}}
+\index{getEncomendas@{getEncomendas}!Empresa@{Empresa}}
+\doxysubsubsection{\texorpdfstring{getEncomendas()}{getEncomendas()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ Empresa\+::get\+Encomendas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gets the Encomendas that need to be delivered
+
+\begin{DoxyReturn}{Returns}
+A vector of Encomendas 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEmpresa_a2a3cf2e6260e2ab74e40f3915ec52de0}\label{classEmpresa_a2a3cf2e6260e2ab74e40f3915ec52de0}} 
+\index{Empresa@{Empresa}!getEstafetas@{getEstafetas}}
+\index{getEstafetas@{getEstafetas}!Empresa@{Empresa}}
+\doxysubsubsection{\texorpdfstring{getEstafetas()}{getEstafetas()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$ Empresa\+::get\+Estafetas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gets the registered Estafetas
+
+\begin{DoxyReturn}{Returns}
+A vector of Estafetas 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEmpresa_a0cd06acbf275826cdd494b87ca52978c}\label{classEmpresa_a0cd06acbf275826cdd494b87ca52978c}} 
+\index{Empresa@{Empresa}!getExpresso@{getExpresso}}
+\index{getExpresso@{getExpresso}!Empresa@{Empresa}}
+\doxysubsubsection{\texorpdfstring{getExpresso()}{getExpresso()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ Empresa\+::get\+Expresso (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gets the Encomendas that are to be expresso delivered
+
+\begin{DoxyReturn}{Returns}
+A vector of Encomendas 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/empresa.\+h\item 
+src/empresa.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,61 @@
+\hypertarget{scenarios_8h_source}{}\doxysection{scenarios.\+h}
+\label{scenarios_8h_source}\index{src/scenarios.h@{src/scenarios.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef SCENARIOS\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define SCENARIOS\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}empresa.h"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{classScenarios}{Scenarios}} \{}
+\DoxyCodeLine{9 \textcolor{keyword}{private}:}
+\DoxyCodeLine{10     \mbox{\hyperlink{classEmpresa}{Empresa}}* empresa;}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} \mbox{\hyperlink{classScenarios_a0f821d638344d2405c8594f5a9bf09ca}{sortEstafetasDesc}}(vector<Estafeta>\& estafetas) \textcolor{keyword}{const};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} \mbox{\hyperlink{classScenarios_a9b991fd6e2ca0563df4e64c272000103}{sortEstafetasAsc}}(vector<Estafeta>\& estafetas) \textcolor{keyword}{const};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} \mbox{\hyperlink{classScenarios_a41d54199e55c47f105260ca37221f1f4}{sortEncomendasDesc}}(vector<Encomenda>\& encomendas) \textcolor{keyword}{const};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{45     \textcolor{keywordtype}{void} \mbox{\hyperlink{classScenarios_a3f5c462f242b19d9d8a4592ce6dfd04d}{sortEncomendasTempoAsc}}(vector<Encomenda>\& encomendas) \textcolor{keyword}{const};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{54     vector<Encomenda> \mbox{\hyperlink{classScenarios_aa4505462eece04cd258e6a6f0b9c414e}{mergeEncomenda}}(vector<Encomenda>, vector<Encomenda>);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{66     vector<Encomenda> \mbox{\hyperlink{classScenarios_aa5e8959abe1f788551b55198569d4d44}{mergeSortEncomendaRecompensa}}(vector<Encomenda>, \textcolor{keywordtype}{int}, \textcolor{keywordtype}{int});}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{75     vector<Estafeta> \mbox{\hyperlink{classScenarios_a51615d6c77665c6c20eef4a02c36eb5e}{mergeEstafeta}}(vector<Estafeta>, vector<Estafeta>);}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{87     vector<Estafeta> \mbox{\hyperlink{classScenarios_acd2cc1d7acee258ad2d720a4e8272584}{mergeSortEstafetaPesoVolume}}(vector<Estafeta>, \textcolor{keywordtype}{int}, \textcolor{keywordtype}{int});}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{98     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classScenarios_a65adf93cbd8161ba5096c7f2680a9b55}{fits}}(\textcolor{keyword}{const} \mbox{\hyperlink{classEncomenda}{Encomenda}}\& encomenda, \textcolor{keyword}{const} \mbox{\hyperlink{classEstafeta}{Estafeta}}\& estafeta) \textcolor{keyword}{const};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{108     \textcolor{keywordtype}{int} \mbox{\hyperlink{classScenarios_a04b96c523fb69c1d7183e4cea8fbb7b5}{custo}}(\textcolor{keyword}{const} vector<Estafeta>\&) \textcolor{keyword}{const};}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{118     \textcolor{keywordtype}{int} \mbox{\hyperlink{classScenarios_a22dd8039a2409bc5a2791729a0dd5242}{lucro}}(\textcolor{keyword}{const} vector<Encomenda>\&) \textcolor{keyword}{const};}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{130     vector<int> \mbox{\hyperlink{classScenarios_aea63da52ad9306b80a0a9de4818a853f}{knapsackMisto}}(\mbox{\hyperlink{classEstafeta}{Estafeta}}, \textcolor{keyword}{const} vector<Encomenda>, vector<vector<Encomenda>>\&);}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{142     \textcolor{keywordtype}{int} \mbox{\hyperlink{classScenarios_ae34d2c0640a15ed8bc5256e9e2e2c95d}{maximizarLucro}}(vector<int>, vector<Estafeta>, \textcolor{keywordtype}{int}\&, vector<vector<Encomenda>>);}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{152     vector<Estafeta> \mbox{\hyperlink{classScenarios_aaaa9b9fcbaa894b50dfa8c383c80b435}{removeEstafeta}}(vector<Estafeta>, \mbox{\hyperlink{classEstafeta}{Estafeta}});}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{162     vector<Encomenda> \mbox{\hyperlink{classScenarios_ae27dc73d78c9d3978fac470ceafad72f}{removeEncomenda}}(vector<Encomenda>, \mbox{\hyperlink{classEncomenda}{Encomenda}});}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166 \textcolor{keyword}{public}:}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{171     \mbox{\hyperlink{classScenarios_a154a71403d021db93e58206b55303b52}{Scenarios}}();}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{176     \mbox{\hyperlink{classScenarios_a0b81583090ca3d4012176649b5cdc544}{\string~Scenarios}}();}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{182     \textcolor{keywordtype}{void} \mbox{\hyperlink{classScenarios_aea922c3728443896368e1efa4fc394a7}{scenario1}}();}
+\DoxyCodeLine{183     \textcolor{keywordtype}{void} scenario2();}
+\DoxyCodeLine{184     \textcolor{keywordtype}{void} scenario3();}
+\DoxyCodeLine{185 \};}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// SCENARIOS\_H}}
+
+\end{DoxyCode}

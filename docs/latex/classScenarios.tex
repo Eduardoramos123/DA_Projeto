@@ -1,0 +1,342 @@
+\hypertarget{classScenarios}{}\doxysection{Scenarios Class Reference}
+\label{classScenarios}\index{Scenarios@{Scenarios}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classScenarios_a154a71403d021db93e58206b55303b52}{Scenarios}} ()
+\item 
+\mbox{\hyperlink{classScenarios_a0b81583090ca3d4012176649b5cdc544}{$\sim$\+Scenarios}} ()
+\item 
+void \mbox{\hyperlink{classScenarios_aea922c3728443896368e1efa4fc394a7}{scenario1}} ()
+\item 
+\mbox{\Hypertarget{classScenarios_ad03d1d016a652848c56d440c0cc7e4bf}\label{classScenarios_ad03d1d016a652848c56d440c0cc7e4bf}} 
+void {\bfseries scenario2} ()
+\item 
+\mbox{\Hypertarget{classScenarios_ae17e3732dae92d7e6a139f2ca260bd94}\label{classScenarios_ae17e3732dae92d7e6a139f2ca260bd94}} 
+void {\bfseries scenario3} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classScenarios_a0f821d638344d2405c8594f5a9bf09ca}{sort\+Estafetas\+Desc}} (vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$ \&estafetas) const
+\item 
+void \mbox{\hyperlink{classScenarios_a9b991fd6e2ca0563df4e64c272000103}{sort\+Estafetas\+Asc}} (vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$ \&estafetas) const
+\item 
+void \mbox{\hyperlink{classScenarios_a41d54199e55c47f105260ca37221f1f4}{sort\+Encomendas\+Desc}} (vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ \&encomendas) const
+\item 
+void \mbox{\hyperlink{classScenarios_a3f5c462f242b19d9d8a4592ce6dfd04d}{sort\+Encomendas\+Tempo\+Asc}} (vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ \&encomendas) const
+\item 
+vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ \mbox{\hyperlink{classScenarios_aa4505462eece04cd258e6a6f0b9c414e}{merge\+Encomenda}} (vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$, vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$)
+\item 
+vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ \mbox{\hyperlink{classScenarios_aa5e8959abe1f788551b55198569d4d44}{merge\+Sort\+Encomenda\+Recompensa}} (vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$, int, int)
+\item 
+vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$ \mbox{\hyperlink{classScenarios_a51615d6c77665c6c20eef4a02c36eb5e}{merge\+Estafeta}} (vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$, vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$)
+\item 
+vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$ \mbox{\hyperlink{classScenarios_acd2cc1d7acee258ad2d720a4e8272584}{merge\+Sort\+Estafeta\+Peso\+Volume}} (vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$, int, int)
+\item 
+bool \mbox{\hyperlink{classScenarios_a65adf93cbd8161ba5096c7f2680a9b55}{fits}} (const \mbox{\hyperlink{classEncomenda}{Encomenda}} \&encomenda, const \mbox{\hyperlink{classEstafeta}{Estafeta}} \&estafeta) const
+\item 
+int \mbox{\hyperlink{classScenarios_a04b96c523fb69c1d7183e4cea8fbb7b5}{custo}} (const vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$ \&) const
+\item 
+int \mbox{\hyperlink{classScenarios_a22dd8039a2409bc5a2791729a0dd5242}{lucro}} (const vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ \&) const
+\item 
+vector$<$ int $>$ \mbox{\hyperlink{classScenarios_aea63da52ad9306b80a0a9de4818a853f}{knapsack\+Misto}} (\mbox{\hyperlink{classEstafeta}{Estafeta}}, const vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$, vector$<$ vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ $>$ \&)
+\item 
+int \mbox{\hyperlink{classScenarios_ae34d2c0640a15ed8bc5256e9e2e2c95d}{maximizar\+Lucro}} (vector$<$ int $>$, vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$, int \&, vector$<$ vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ $>$)
+\item 
+vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$ \mbox{\hyperlink{classScenarios_aaaa9b9fcbaa894b50dfa8c383c80b435}{remove\+Estafeta}} (vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$, \mbox{\hyperlink{classEstafeta}{Estafeta}})
+\item 
+vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ \mbox{\hyperlink{classScenarios_ae27dc73d78c9d3978fac470ceafad72f}{remove\+Encomenda}} (vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$, \mbox{\hyperlink{classEncomenda}{Encomenda}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classScenarios_a1442669e1b1fa107634d9c15b88a12a8}\label{classScenarios_a1442669e1b1fa107634d9c15b88a12a8}} 
+\mbox{\hyperlink{classEmpresa}{Empresa}} $\ast$ {\bfseries empresa}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classScenarios_a154a71403d021db93e58206b55303b52}\label{classScenarios_a154a71403d021db93e58206b55303b52}} 
+\index{Scenarios@{Scenarios}!Scenarios@{Scenarios}}
+\index{Scenarios@{Scenarios}!Scenarios@{Scenarios}}
+\doxysubsubsection{\texorpdfstring{Scenarios()}{Scenarios()}}
+{\footnotesize\ttfamily Scenarios\+::\+Scenarios (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classScenarios}{Scenarios}} constructor, creates a new \mbox{\hyperlink{classEmpresa}{Empresa}} \mbox{\Hypertarget{classScenarios_a0b81583090ca3d4012176649b5cdc544}\label{classScenarios_a0b81583090ca3d4012176649b5cdc544}} 
+\index{Scenarios@{Scenarios}!````~Scenarios@{$\sim$Scenarios}}
+\index{````~Scenarios@{$\sim$Scenarios}!Scenarios@{Scenarios}}
+\doxysubsubsection{\texorpdfstring{$\sim$Scenarios()}{~Scenarios()}}
+{\footnotesize\ttfamily Scenarios\+::$\sim$\+Scenarios (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classScenarios}{Scenarios}} destructor, cleans up used memory. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classScenarios_a04b96c523fb69c1d7183e4cea8fbb7b5}\label{classScenarios_a04b96c523fb69c1d7183e4cea8fbb7b5}} 
+\index{Scenarios@{Scenarios}!custo@{custo}}
+\index{custo@{custo}!Scenarios@{Scenarios}}
+\doxysubsubsection{\texorpdfstring{custo()}{custo()}}
+{\footnotesize\ttfamily int Scenarios\+::custo (\begin{DoxyParamCaption}\item[{const vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$ \&}]{estafetas }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Calculates the sum of the delivery cost of a vector of Estafetas.
+
+
+\begin{DoxyParams}{Parameters}
+{\em estafetas} & The vector of Estafetas to calculate the cost.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The total delivery cost. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classScenarios_a65adf93cbd8161ba5096c7f2680a9b55}\label{classScenarios_a65adf93cbd8161ba5096c7f2680a9b55}} 
+\index{Scenarios@{Scenarios}!fits@{fits}}
+\index{fits@{fits}!Scenarios@{Scenarios}}
+\doxysubsubsection{\texorpdfstring{fits()}{fits()}}
+{\footnotesize\ttfamily bool Scenarios\+::fits (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classEncomenda}{Encomenda}} \&}]{encomenda,  }\item[{const \mbox{\hyperlink{classEstafeta}{Estafeta}} \&}]{estafeta }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Checks if a given \mbox{\hyperlink{classEncomenda}{Encomenda}} can be delivered by a given \mbox{\hyperlink{classEstafeta}{Estafeta}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em encomenda} & The \mbox{\hyperlink{classEncomenda}{Encomenda}} to be delivered. \\
+\hline
+{\em estafeta} & The \mbox{\hyperlink{classEstafeta}{Estafeta}} to check if can deliver the \mbox{\hyperlink{classEncomenda}{Encomenda}}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classEncomenda}{Encomenda}} can be delivered by the \mbox{\hyperlink{classEstafeta}{Estafeta}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classScenarios_aea63da52ad9306b80a0a9de4818a853f}\label{classScenarios_aea63da52ad9306b80a0a9de4818a853f}} 
+\index{Scenarios@{Scenarios}!knapsackMisto@{knapsackMisto}}
+\index{knapsackMisto@{knapsackMisto}!Scenarios@{Scenarios}}
+\doxysubsubsection{\texorpdfstring{knapsackMisto()}{knapsackMisto()}}
+{\footnotesize\ttfamily vector$<$ int $>$ Scenarios\+::knapsack\+Misto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEstafeta}{Estafeta}}}]{estafeta,  }\item[{const vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$}]{encomendas,  }\item[{vector$<$ vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ $>$ \&}]{usadas }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Caculates a table that gives the best profit for each value of weight and volume a estafeta can have.
+
+
+\begin{DoxyParams}{Parameters}
+{\em estafeta} & \mbox{\hyperlink{classEstafeta}{Estafeta}} which has the higher Weight $\ast$ 10 + Volume. \\
+\hline
+{\em encomendas} & The vector of Encomendas to get the diffrent Encomendas that are possible to carry. \\
+\hline
+{\em usados} & The vector of Encomendas that were used by Estafetas.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The a table with the best value a \mbox{\hyperlink{classEstafeta}{Estafeta}} can carry. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classScenarios_a22dd8039a2409bc5a2791729a0dd5242}\label{classScenarios_a22dd8039a2409bc5a2791729a0dd5242}} 
+\index{Scenarios@{Scenarios}!lucro@{lucro}}
+\index{lucro@{lucro}!Scenarios@{Scenarios}}
+\doxysubsubsection{\texorpdfstring{lucro()}{lucro()}}
+{\footnotesize\ttfamily int Scenarios\+::lucro (\begin{DoxyParamCaption}\item[{const vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ \&}]{encomendas }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Calculates the sum of all the rewards of the deliveries of a vector of Encomendas.
+
+
+\begin{DoxyParams}{Parameters}
+{\em encomendas} & The vector of Encomendas to calculate the rewards.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The total delivery reward. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classScenarios_ae34d2c0640a15ed8bc5256e9e2e2c95d}\label{classScenarios_ae34d2c0640a15ed8bc5256e9e2e2c95d}} 
+\index{Scenarios@{Scenarios}!maximizarLucro@{maximizarLucro}}
+\index{maximizarLucro@{maximizarLucro}!Scenarios@{Scenarios}}
+\doxysubsubsection{\texorpdfstring{maximizarLucro()}{maximizarLucro()}}
+{\footnotesize\ttfamily int Scenarios\+::maximizar\+Lucro (\begin{DoxyParamCaption}\item[{vector$<$ int $>$}]{tabela,  }\item[{vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$}]{estafetas,  }\item[{int \&}]{index\+\_\+estafeta,  }\item[{vector$<$ vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ $>$}]{usadas }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Gives the index of the estafeta that has the higher profit.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tabela} & Last line of tabela that gives the profit of each estafeta. \\
+\hline
+{\em estafetas} & The vector of Estafetas to get the diffrent Estafetas. \\
+\hline
+{\em index\+\_\+estafeta} & The index of the \mbox{\hyperlink{classEncomenda}{Encomenda}} that has the best profit. \\
+\hline
+{\em usados} & A vecctor of used encomendas by each \mbox{\hyperlink{classEstafeta}{Estafeta}}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the Weight $\ast$ 10 + Volume of the best \mbox{\hyperlink{classEstafeta}{Estafeta}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classScenarios_aa4505462eece04cd258e6a6f0b9c414e}\label{classScenarios_aa4505462eece04cd258e6a6f0b9c414e}} 
+\index{Scenarios@{Scenarios}!mergeEncomenda@{mergeEncomenda}}
+\index{mergeEncomenda@{mergeEncomenda}!Scenarios@{Scenarios}}
+\doxysubsubsection{\texorpdfstring{mergeEncomenda()}{mergeEncomenda()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ Scenarios\+::merge\+Encomenda (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$}]{v1,  }\item[{vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$}]{v2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Merges to vectors in one organized vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & Vector 1 to be merged. \\
+\hline
+{\em v2} & Vector 2 to be merged. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Organized Merged Vector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classScenarios_a51615d6c77665c6c20eef4a02c36eb5e}\label{classScenarios_a51615d6c77665c6c20eef4a02c36eb5e}} 
+\index{Scenarios@{Scenarios}!mergeEstafeta@{mergeEstafeta}}
+\index{mergeEstafeta@{mergeEstafeta}!Scenarios@{Scenarios}}
+\doxysubsubsection{\texorpdfstring{mergeEstafeta()}{mergeEstafeta()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$ Scenarios\+::merge\+Estafeta (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$}]{v1,  }\item[{vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$}]{v2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Merges to vectors in one organized vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & Vector 1 to be merged. \\
+\hline
+{\em v2} & Vector 2 to be merged. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Organized Merged Vector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classScenarios_aa5e8959abe1f788551b55198569d4d44}\label{classScenarios_aa5e8959abe1f788551b55198569d4d44}} 
+\index{Scenarios@{Scenarios}!mergeSortEncomendaRecompensa@{mergeSortEncomendaRecompensa}}
+\index{mergeSortEncomendaRecompensa@{mergeSortEncomendaRecompensa}!Scenarios@{Scenarios}}
+\doxysubsubsection{\texorpdfstring{mergeSortEncomendaRecompensa()}{mergeSortEncomendaRecompensa()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ Scenarios\+::merge\+Sort\+Encomenda\+Recompensa (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$}]{v,  }\item[{int}]{init,  }\item[{int}]{fim }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Organizes a vector through a merge sort.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Vector to be merged. \\
+\hline
+{\em init} & First index of the vector. \\
+\hline
+{\em fim} & Size of the vector.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Organized vector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classScenarios_acd2cc1d7acee258ad2d720a4e8272584}\label{classScenarios_acd2cc1d7acee258ad2d720a4e8272584}} 
+\index{Scenarios@{Scenarios}!mergeSortEstafetaPesoVolume@{mergeSortEstafetaPesoVolume}}
+\index{mergeSortEstafetaPesoVolume@{mergeSortEstafetaPesoVolume}!Scenarios@{Scenarios}}
+\doxysubsubsection{\texorpdfstring{mergeSortEstafetaPesoVolume()}{mergeSortEstafetaPesoVolume()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$ Scenarios\+::merge\+Sort\+Estafeta\+Peso\+Volume (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$}]{v,  }\item[{int}]{init,  }\item[{int}]{fim }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Organizes a vector through a merge sort.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Vector to be merged. \\
+\hline
+{\em init} & First index of the vector. \\
+\hline
+{\em fim} & Size of the vector.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Organized vector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classScenarios_ae27dc73d78c9d3978fac470ceafad72f}\label{classScenarios_ae27dc73d78c9d3978fac470ceafad72f}} 
+\index{Scenarios@{Scenarios}!removeEncomenda@{removeEncomenda}}
+\index{removeEncomenda@{removeEncomenda}!Scenarios@{Scenarios}}
+\doxysubsubsection{\texorpdfstring{removeEncomenda()}{removeEncomenda()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ Scenarios\+::remove\+Encomenda (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$}]{v,  }\item[{\mbox{\hyperlink{classEncomenda}{Encomenda}}}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Removes \mbox{\hyperlink{classEncomenda}{Encomenda}} from a vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em encomendas} & Vector of encomendas. \\
+\hline
+{\em encomenda} & \mbox{\hyperlink{classEncomenda}{Encomenda}} to be removed from the vector.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns The vector encomendas without the \mbox{\hyperlink{classEncomenda}{Encomenda}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classScenarios_aaaa9b9fcbaa894b50dfa8c383c80b435}\label{classScenarios_aaaa9b9fcbaa894b50dfa8c383c80b435}} 
+\index{Scenarios@{Scenarios}!removeEstafeta@{removeEstafeta}}
+\index{removeEstafeta@{removeEstafeta}!Scenarios@{Scenarios}}
+\doxysubsubsection{\texorpdfstring{removeEstafeta()}{removeEstafeta()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$ Scenarios\+::remove\+Estafeta (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$}]{v,  }\item[{\mbox{\hyperlink{classEstafeta}{Estafeta}}}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Removes \mbox{\hyperlink{classEstafeta}{Estafeta}} from a vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em estafetas} & Vector of estafetas. \\
+\hline
+{\em estafeta} & \mbox{\hyperlink{classEstafeta}{Estafeta}} to be removed from the vector.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns The vector estafetas without the \mbox{\hyperlink{classEstafeta}{Estafeta}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classScenarios_aea922c3728443896368e1efa4fc394a7}\label{classScenarios_aea922c3728443896368e1efa4fc394a7}} 
+\index{Scenarios@{Scenarios}!scenario1@{scenario1}}
+\index{scenario1@{scenario1}!Scenarios@{Scenarios}}
+\doxysubsubsection{\texorpdfstring{scenario1()}{scenario1()}}
+{\footnotesize\ttfamily void Scenarios\+::scenario1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Solves the first scenario using a best-\/fit-\/decreasing approach to the bin packing problem. \mbox{\Hypertarget{classScenarios_a41d54199e55c47f105260ca37221f1f4}\label{classScenarios_a41d54199e55c47f105260ca37221f1f4}} 
+\index{Scenarios@{Scenarios}!sortEncomendasDesc@{sortEncomendasDesc}}
+\index{sortEncomendasDesc@{sortEncomendasDesc}!Scenarios@{Scenarios}}
+\doxysubsubsection{\texorpdfstring{sortEncomendasDesc()}{sortEncomendasDesc()}}
+{\footnotesize\ttfamily void Scenarios\+::sort\+Encomendas\+Desc (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ \&}]{encomendas }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Sorts a vector of Encomendas in descending order of weigth $\ast$ volume using the STL sort method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em encomendas} & The vector to be sorted. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScenarios_a3f5c462f242b19d9d8a4592ce6dfd04d}\label{classScenarios_a3f5c462f242b19d9d8a4592ce6dfd04d}} 
+\index{Scenarios@{Scenarios}!sortEncomendasTempoAsc@{sortEncomendasTempoAsc}}
+\index{sortEncomendasTempoAsc@{sortEncomendasTempoAsc}!Scenarios@{Scenarios}}
+\doxysubsubsection{\texorpdfstring{sortEncomendasTempoAsc()}{sortEncomendasTempoAsc()}}
+{\footnotesize\ttfamily void Scenarios\+::sort\+Encomendas\+Tempo\+Asc (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ \&}]{encomendas }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Sorts a vector of Encomendas in ascending order of duration using the STL sort method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em encomendas} & The vector to be sorted. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScenarios_a9b991fd6e2ca0563df4e64c272000103}\label{classScenarios_a9b991fd6e2ca0563df4e64c272000103}} 
+\index{Scenarios@{Scenarios}!sortEstafetasAsc@{sortEstafetasAsc}}
+\index{sortEstafetasAsc@{sortEstafetasAsc}!Scenarios@{Scenarios}}
+\doxysubsubsection{\texorpdfstring{sortEstafetasAsc()}{sortEstafetasAsc()}}
+{\footnotesize\ttfamily void Scenarios\+::sort\+Estafetas\+Asc (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$ \&}]{estafetas }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Sorts a vector of Estafetas in ascending order of volume $\ast$ weight using the STL sort method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em estafetas} & The vector to be sorted. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScenarios_a0f821d638344d2405c8594f5a9bf09ca}\label{classScenarios_a0f821d638344d2405c8594f5a9bf09ca}} 
+\index{Scenarios@{Scenarios}!sortEstafetasDesc@{sortEstafetasDesc}}
+\index{sortEstafetasDesc@{sortEstafetasDesc}!Scenarios@{Scenarios}}
+\doxysubsubsection{\texorpdfstring{sortEstafetasDesc()}{sortEstafetasDesc()}}
+{\footnotesize\ttfamily void Scenarios\+::sort\+Estafetas\+Desc (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classEstafeta}{Estafeta}} $>$ \&}]{estafetas }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Sorts a vector of Estafetas in descending order of volume $\ast$ weight using the STL sort method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em estafetas} & The vector to be sorted. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/scenarios.\+h\item 
+src/scenarios.\+cpp\end{DoxyCompactItemize}

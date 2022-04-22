@@ -1,0 +1,150 @@
+\hypertarget{classEstafeta}{}\doxysection{Estafeta Class Reference}
+\label{classEstafeta}\index{Estafeta@{Estafeta}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEstafeta_a9eabe4918059c7907eb20064d01bbc2a}{Estafeta}} ()
+\item 
+\mbox{\hyperlink{classEstafeta_a6f7e2233a692f9600979a51d8d6bfe7a}{Estafeta}} (string matricula, int vol\+Max, int peso\+Max, int custo)
+\item 
+int \mbox{\hyperlink{classEstafeta_af3fa512a3c2a8c51a9b904a7f82c7df8}{get\+Vol}} () const
+\item 
+int \mbox{\hyperlink{classEstafeta_a6ff27214929e9d47bff3f0a1464dbf58}{get\+Peso}} () const
+\item 
+int \mbox{\hyperlink{classEstafeta_aecd27e21c45b9ad6d1e550f792121757}{get\+Custo}} () const
+\item 
+vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ \mbox{\hyperlink{classEstafeta_a35d16d7f5c6319025e2b8914eba261f4}{get\+Entregas}} () const
+\item 
+void \mbox{\hyperlink{classEstafeta_aa5bc8ae6e98e9ab179bf84faf81a7271}{add\+Entrega}} (const \mbox{\hyperlink{classEncomenda}{Encomenda}} \&encomenda)
+\item 
+string \mbox{\hyperlink{classEstafeta_a80ec8573f677531683191b3ce8f3c106}{get\+Matricula}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEstafeta_aa3c1484dc293f8b08328228b998de81c}\label{classEstafeta_aa3c1484dc293f8b08328228b998de81c}} 
+string {\bfseries matricula}
+\item 
+\mbox{\Hypertarget{classEstafeta_a158c09fbf0c78cf28f1da0117b5daa05}\label{classEstafeta_a158c09fbf0c78cf28f1da0117b5daa05}} 
+int {\bfseries vol\+Max}
+\item 
+\mbox{\Hypertarget{classEstafeta_aeb7de3c89c1d4238a56adcf7d0f71f27}\label{classEstafeta_aeb7de3c89c1d4238a56adcf7d0f71f27}} 
+int {\bfseries curr\+Vol}
+\item 
+\mbox{\Hypertarget{classEstafeta_a4f16d6a9014a3d0cdc986a284e4cf18a}\label{classEstafeta_a4f16d6a9014a3d0cdc986a284e4cf18a}} 
+int {\bfseries peso\+Max}
+\item 
+\mbox{\Hypertarget{classEstafeta_a8206e6b5f33a2c7a9bdfc1506e860b5c}\label{classEstafeta_a8206e6b5f33a2c7a9bdfc1506e860b5c}} 
+int {\bfseries curr\+Peso}
+\item 
+\mbox{\Hypertarget{classEstafeta_a717b7d9d9ee44d2416191ef60676ad5e}\label{classEstafeta_a717b7d9d9ee44d2416191ef60676ad5e}} 
+int {\bfseries custo}
+\item 
+\mbox{\Hypertarget{classEstafeta_a10b8eb78626d0fff41c89c5b4678113b}\label{classEstafeta_a10b8eb78626d0fff41c89c5b4678113b}} 
+vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ {\bfseries entregas}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEstafeta_a9eabe4918059c7907eb20064d01bbc2a}\label{classEstafeta_a9eabe4918059c7907eb20064d01bbc2a}} 
+\index{Estafeta@{Estafeta}!Estafeta@{Estafeta}}
+\index{Estafeta@{Estafeta}!Estafeta@{Estafeta}}
+\doxysubsubsection{\texorpdfstring{Estafeta()}{Estafeta()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Estafeta\+::\+Estafeta (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default estafeta constructor \mbox{\Hypertarget{classEstafeta_a6f7e2233a692f9600979a51d8d6bfe7a}\label{classEstafeta_a6f7e2233a692f9600979a51d8d6bfe7a}} 
+\index{Estafeta@{Estafeta}!Estafeta@{Estafeta}}
+\index{Estafeta@{Estafeta}!Estafeta@{Estafeta}}
+\doxysubsubsection{\texorpdfstring{Estafeta()}{Estafeta()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Estafeta\+::\+Estafeta (\begin{DoxyParamCaption}\item[{string}]{matricula,  }\item[{int}]{vol\+Max,  }\item[{int}]{peso\+Max,  }\item[{int}]{custo }\end{DoxyParamCaption})}
+
+Parametized estafeta constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em matricula} & The plate number \\
+\hline
+{\em vol\+Max} & The maximum volume the \mbox{\hyperlink{classEstafeta}{Estafeta}} can carry \\
+\hline
+{\em peso\+Max} & the maximum weight the \mbox{\hyperlink{classEstafeta}{Estafeta}} can carry \\
+\hline
+{\em custo} & The cost of a trip \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEstafeta_aa5bc8ae6e98e9ab179bf84faf81a7271}\label{classEstafeta_aa5bc8ae6e98e9ab179bf84faf81a7271}} 
+\index{Estafeta@{Estafeta}!addEntrega@{addEntrega}}
+\index{addEntrega@{addEntrega}!Estafeta@{Estafeta}}
+\doxysubsubsection{\texorpdfstring{addEntrega()}{addEntrega()}}
+{\footnotesize\ttfamily void Estafeta\+::add\+Entrega (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classEncomenda}{Encomenda}} \&}]{encomenda }\end{DoxyParamCaption})}
+
+Assigns a new \mbox{\hyperlink{classEncomenda}{Encomenda}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em encomenda} & The encomenda to assign \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEstafeta_aecd27e21c45b9ad6d1e550f792121757}\label{classEstafeta_aecd27e21c45b9ad6d1e550f792121757}} 
+\index{Estafeta@{Estafeta}!getCusto@{getCusto}}
+\index{getCusto@{getCusto}!Estafeta@{Estafeta}}
+\doxysubsubsection{\texorpdfstring{getCusto()}{getCusto()}}
+{\footnotesize\ttfamily int Estafeta\+::get\+Custo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gets the cost of a trip
+
+\begin{DoxyReturn}{Returns}
+Cost 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEstafeta_a35d16d7f5c6319025e2b8914eba261f4}\label{classEstafeta_a35d16d7f5c6319025e2b8914eba261f4}} 
+\index{Estafeta@{Estafeta}!getEntregas@{getEntregas}}
+\index{getEntregas@{getEntregas}!Estafeta@{Estafeta}}
+\doxysubsubsection{\texorpdfstring{getEntregas()}{getEntregas()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classEncomenda}{Encomenda}} $>$ Estafeta\+::get\+Entregas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gets the Encomendas assigned
+
+\begin{DoxyReturn}{Returns}
+Vector of Encomendas 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEstafeta_a80ec8573f677531683191b3ce8f3c106}\label{classEstafeta_a80ec8573f677531683191b3ce8f3c106}} 
+\index{Estafeta@{Estafeta}!getMatricula@{getMatricula}}
+\index{getMatricula@{getMatricula}!Estafeta@{Estafeta}}
+\doxysubsubsection{\texorpdfstring{getMatricula()}{getMatricula()}}
+{\footnotesize\ttfamily string Estafeta\+::get\+Matricula (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gets the plate number
+
+\begin{DoxyReturn}{Returns}
+Plate number 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEstafeta_a6ff27214929e9d47bff3f0a1464dbf58}\label{classEstafeta_a6ff27214929e9d47bff3f0a1464dbf58}} 
+\index{Estafeta@{Estafeta}!getPeso@{getPeso}}
+\index{getPeso@{getPeso}!Estafeta@{Estafeta}}
+\doxysubsubsection{\texorpdfstring{getPeso()}{getPeso()}}
+{\footnotesize\ttfamily int Estafeta\+::get\+Peso (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gets the available peso
+
+\begin{DoxyReturn}{Returns}
+Weight 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEstafeta_af3fa512a3c2a8c51a9b904a7f82c7df8}\label{classEstafeta_af3fa512a3c2a8c51a9b904a7f82c7df8}} 
+\index{Estafeta@{Estafeta}!getVol@{getVol}}
+\index{getVol@{getVol}!Estafeta@{Estafeta}}
+\doxysubsubsection{\texorpdfstring{getVol()}{getVol()}}
+{\footnotesize\ttfamily int Estafeta\+::get\+Vol (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gets the available volume
+
+\begin{DoxyReturn}{Returns}
+Volume 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/estafeta.\+h\item 
+src/estafeta.\+cpp\end{DoxyCompactItemize}
