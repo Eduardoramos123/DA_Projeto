@@ -188,14 +188,21 @@ vector<int> Scenarios::knapsackMisto(Estafeta estafeta, const vector<Encomenda> 
     return tabela[tabela.size() - 1];
 }
 
-int Scenarios::maximizarLucro(vector<int> tabela, vector<Estafeta> estafetas, int &index_estafeta) {
+int Scenarios::maximizarLucro(vector<int> tabela, vector<Estafeta> estafetas, int &index_estafeta, vector<vector<Encomenda>> usadas) {
     int max = 0;
     int index = -1;
 
     for (int i = 0; i < estafetas.size(); i++) {
+        int profit = 0;
         int w = estafetas[i].getPeso() * 10 + estafetas[i].getVol();
-        if (tabela[w] - estafetas[i].getCusto() >= max) {
-            max = tabela[w] - estafetas[i].getCusto();
+        for (int j = 0; j < usadas[w].size(); j++) {
+            if (fits(usadas[w][j], estafetas[i])) {
+                estafetas[i].addEntrega(usadas[w][j]);
+                profit += usadas[w][j].getRecompensa();
+            }
+        }
+        if (profit - estafetas[i].getCusto() >= max) {
+            max = profit - estafetas[i].getCusto();
             index = w;
             index_estafeta = i;
         }
@@ -278,7 +285,7 @@ void Scenarios::scenario2() {
     vector<Encomenda> encomendas = empresa->getEncomendas();
 
     estafetas = mergeSortEstafetaPesoVolume(estafetas, 0, estafetas.size());
-    encomendas = mergeSortEncomendaPesoVolume(encomendas, 0, encomendas.size());
+    //encomendas = mergeSortEncomendaPesoVolume(encomendas, 0, encomendas.size());
 
     int profit = 0;
     int numero_estafetas = 0;
@@ -288,7 +295,7 @@ void Scenarios::scenario2() {
         vector<vector<Encomenda>> usadas;
         vector<int> tabela = knapsackMisto(estafetas[estafetas.size() - 1], encomendas, usadas);
         int estafeta_index;
-        int index = maximizarLucro(tabela, estafetas, estafeta_index);
+        int index = maximizarLucro(tabela, estafetas, estafeta_index, usadas);
         if (index == -1) {
             break;
         }
@@ -301,6 +308,7 @@ void Scenarios::scenario2() {
                 profit += usadas[index][i].getRecompensa();
             }
         }
+        profit -= estafetas[estafeta_index].getCusto();
         estafetas = removeEstafeta(estafetas, estafetas[estafeta_index]);
     }
 

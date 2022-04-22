@@ -138,7 +138,7 @@ private:
      *
      * @return Returns the Weight * 10 + Volume of the best Estafeta.
      */
-    int maximizarLucro(vector<int>, vector<Estafeta>, int&);
+    int maximizarLucro(vector<int>, vector<Estafeta>, int&, vector<vector<Encomenda>>);
 
     /**
      * Removes Estafeta from a vector.
