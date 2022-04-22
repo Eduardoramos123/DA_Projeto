@@ -51,27 +51,6 @@ private:
      * @param v2 Vector 2 to be merged.
      * @return Organized Merged Vector.
      */
-    vector<Encomenda> mergeEncomenda(vector<Encomenda>, vector<Encomenda>);
-
-    /**
-     * Organizes a vector through a merge
-     * sort.
-     *
-     * @param v Vector to be merged.
-     * @param init First index of the vector.
-     * @param fim Size of the vector.
-     *
-     * @return Organized vector.
-     */
-    vector<Encomenda> mergeSortEncomendaPesoVolume(vector<Encomenda>, int, int);
-
-    /**
-     * Merges to vectors in one organized vector.
-     *
-     * @param v1 Vector 1 to be merged.
-     * @param v2 Vector 2 to be merged.
-     * @return Organized Merged Vector.
-     */
     vector<Estafeta> mergeEstafeta(vector<Estafeta>, vector<Estafeta>);
 
     /**

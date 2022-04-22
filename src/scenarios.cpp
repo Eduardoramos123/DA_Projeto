@@ -30,60 +30,6 @@ void Scenarios::sortEncomendasTempoAsc(vector<Encomenda>& encomendas) const {
          [](const Encomenda& e1, const Encomenda& e2) { return e1.getTempo() < e2.getTempo(); });
 }
 
-vector<Encomenda> Scenarios::mergeEncomenda(vector<Encomenda> v1, vector<Encomenda> v2) {
-    vector<Encomenda> res;
-
-    int i = 0;
-    int j = 0;
-
-    while (i < v1.size() && j < v2.size()) {
-        if ((v1[i].getPeso() * 10 + v1[i].getVolume()) < (v2[j].getPeso() * 10 + v2[j].getVolume())) {
-            res.push_back(v1[i]);
-            i++;
-        } else {
-            res.push_back(v2[j]);
-            j++;
-        }
-    }
-
-    while(i < v1.size()) {
-        res.push_back(v1[i]);
-        i++;
-    }
-    while(j < v2.size()) {
-        res.push_back(v2[j]);
-        j++;
-    }
-    return res;
-}
-
-vector<Encomenda> Scenarios::mergeSortEncomendaPesoVolume(vector<Encomenda> v, int init, int fim) {
-    if (v.size() <= 1) {
-        return v;
-    }
-
-    int medio = (init + fim) / 2;
-
-    vector<Encomenda> part1;
-    vector<Encomenda> part2;
-
-    for (int i = init; i < medio; i++) {
-        part1.push_back(v[i]);
-    }
-
-    for (int i = medio; i < fim; i++) {
-        part2.push_back(v[i]);
-    }
-
-    vector<Encomenda> final1;
-    vector<Encomenda> final2;
-
-    final1 = mergeSortEncomendaPesoVolume(part1, 0, part1.size());
-    final2 = mergeSortEncomendaPesoVolume(part2, 0, part2.size());
-
-    return mergeEncomenda(final1, final2);
-}
-
 vector<Estafeta> Scenarios::mergeEstafeta(vector<Estafeta> v1, vector<Estafeta> v2) {
     vector<Estafeta> res;
 
@@ -277,8 +223,10 @@ void Scenarios::scenario2() {
     vector<Estafeta> estafetas = empresa->getEstafetas();
     vector<Encomenda> encomendas = empresa->getEncomendas();
 
+    const int nEstafetas = estafetas.size();
+    const int nEncomendas = encomendas.size();
+
     estafetas = mergeSortEstafetaPesoVolume(estafetas, 0, estafetas.size());
-    encomendas = mergeSortEncomendaPesoVolume(encomendas, 0, encomendas.size());
 
     int profit = 0;
     int numero_estafetas = 0;
@@ -301,12 +249,13 @@ void Scenarios::scenario2() {
                 profit += usadas[index][i].getRecompensa();
             }
         }
+        profit -= estafetas[estafeta_index].getCusto();
         estafetas = removeEstafeta(estafetas, estafetas[estafeta_index]);
     }
 
-    cout << "Lucro: " << profit << endl;
-    cout << "Estafetas usados: " << numero_estafetas << endl;
-    cout << "Encomendas entregues: " << numero_encomendas << endl;
+    cout << "Foram entregues " << numero_encomendas << "/" << nEncomendas << " encomendas e foram usados " <<
+            numero_estafetas << "/" << nEstafetas << " estafetas." << endl <<
+            "Lucro total: " << profit << endl;
 }
 
 void Scenarios::scenario3() {
